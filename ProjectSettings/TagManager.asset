@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Dragable
+  - ItemPoint
+  - Table
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - UI
   - Player
   - Post prossocing
-  - 
+  - Dragging
   - 
   - 
   - 
