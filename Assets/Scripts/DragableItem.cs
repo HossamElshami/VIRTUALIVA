@@ -5,15 +5,15 @@ using UnityEngine;
 [RequireComponent(typeof(Outline))]
 public class DragableItem : MonoBehaviour, Item
 {
-    Outline outline;
-    public bool isDragging = false;
+    public bool isDragging = false, onTable = false;
 
-    public bool onTable = false;
-    Rigidbody rb;
-    new Collider collider;
-    public Transform parent;
-    Quaternion rot;
     float rotY;
+    Rigidbody rb;
+    Quaternion rot;
+    Outline outline;
+    new Collider collider;
+    public Transform parent;    
+
     private void Start()
     {
         outline = GetComponent<Outline>();
@@ -25,23 +25,37 @@ public class DragableItem : MonoBehaviour, Item
         if (transform.parent) parent = transform.parent;
     }
     private void Update()
-    {
+    {        
         use();
+        if (!isDragging) return;
+        itemOptions();
     }
     public void use()
     {
         rb.useGravity = !isDragging;
-        collider.isTrigger = isDragging;
+        rb.isKinematic = isDragging;
+        collider.isTrigger = isDragging;       
+        outline.enabled = this.gameObject == LabManager.instance.character.GetComponent<DragingSystem>().selectedObject ? true : false;
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.tag == "Table")
+        onTable = collision.transform.tag == "Table" ? true : false;
+    }
+    void itemOptions()
+    {
+        if (InputManager.instance.inputDown(KeyCode.E))
         {
-            onTable = true;
+            transform.rotation = LabManager.instance.character.GetComponent<DragingSystem>().itemTransform.rotation;
+            transform.position = LabManager.instance.character.GetComponent<DragingSystem>().itemTransform.position;
+            transform.localScale = Vector3.one;
         }
-        else
+        if (InputManager.instance.inputDown(KeyCode.R))
         {
-            onTable = false;
+            transform.Rotate(Vector3.up * 45);
+        }
+        if (InputManager.instance.inputDown(KeyCode.T))
+        {
+            transform.localScale *= 1.25f;
         }
     }
 }

@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: b87d826ff85bc22489dc77e988027584
+guid: c738a975d9ad32045baf7f9550eb39fa
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ball
-    second: {fileID: 2100000, guid: 7af786a7f7121f14db9b59230199f547, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Base
-    second: {fileID: 2100000, guid: b7584d3e472dc18419a552462ec6d19e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Carry
-    second: {fileID: 2100000, guid: 1ca3636933b4ab64c9a699e9175d71e1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wire
-    second: {fileID: 2100000, guid: 723fca96c64bda24abd8991524dd7e1c, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -51,7 +31,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1

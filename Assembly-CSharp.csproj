@@ -56,20 +56,29 @@
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
     <Compile Include="Assets\Scripts\LabManager.cs" />
+    <Compile Include="Assets\InputManager.cs" />
     <Compile Include="Assets\Scripts\QuestManager.cs" />
+    <Compile Include="Assets\AnimationEvents.cs" />
     <Compile Include="Assets\Scripts\UI_Manager.cs" />
+    <Compile Include="Assets\FadeScreen.cs" />
+    <Compile Include="Assets\PendulumQuest.cs" />
     <Compile Include="Assets\Scripts\Desk_SO.cs" />
     <Compile Include="Assets\Scripts\NotePanel.cs" />
     <Compile Include="Assets\Scripts\MoveCubeQuest.cs" />
+    <Compile Include="Assets\SpecificObject.cs" />
     <Compile Include="Assets\Scripts\Quest.cs" />
     <Compile Include="Assets\Scripts\Quest_SO.cs" />
     <Compile Include="Assets\Scripts\Desk.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
+    <Compile Include="Assets\SaveableObject.cs" />
     <Compile Include="Assets\Scripts\DragingSystem.cs" />
+    <Compile Include="Assets\InventoryCell.cs" />
     <Compile Include="Assets\Data\Quest\IQuestable.cs" />
     <Compile Include="Assets\Scripts\DragableItem.cs" />
-    <Compile Include="Assets\PendulumQuest.cs" />
-    <Compile Include="Assets\InventoryCell.cs" />
+    <Compile Include="Assets\MainManager.cs" />
+    <Compile Include="Assets\SaveGameManager.cs" />
+    <Compile Include="Assets\RigisterManager.cs" />
+    <Compile Include="Assets\DialogBox.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

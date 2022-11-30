@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LabManager : MonoBehaviour
 {    
@@ -17,5 +18,9 @@ public class LabManager : MonoBehaviour
     private void Start()
     {
         character = FindObjectOfType<Movement>().gameObject;
+    }
+    public void mainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

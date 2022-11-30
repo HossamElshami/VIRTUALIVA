@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private float Speed = 5f;
     [SerializeField]
     private float mouseSensitivity = 100f;
-    float rotateX = 0;
-    [SerializeField]
     private new GameObject camera;
     [SerializeField]
-    float moveX, moveY;
+    float moveX, moveY, rotateX = 0, Speed = 5f;
 
     private void Start()
     {
@@ -23,9 +20,9 @@ public class Movement : MonoBehaviour
     void Update()
     {
         updateMouseVisibale();
-        RotateCamera(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        moveX = Input.GetAxisRaw("Horizontal");
-        moveY = Input.GetAxisRaw("Vertical");
+        RotateCamera(InputManager.instance.MouseX, InputManager.instance.MouseY);
+        moveX = InputManager.instance.HValue;
+        moveY = InputManager.instance.VValue;
     }
 
     private void FixedUpdate()
