@@ -8,30 +8,40 @@ using TMPro;
 public class MainManager : MonoBehaviour
 {
     public GameObject MainMenuPanel, FadePanel;
-    public GameObject[] pages;
+    public List<GameObject> pages;
     public DialogBox dialogBox;
     private List<int> usersId;
     private List<User> users;
     public enum dialogType
     {
         Error, Attention, Ask ,Confirmation
-    }    
+    }
+    Scene currentScene;
 
     public static MainManager instance;
 
     private void Awake()
     {
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     private void Start()
     {
         usersId = new List<int>();
         users = new List<User>();
     }
+    private void Update()
+    {       
+        currentScene = currentScene == null ? SceneManager.GetActiveScene() : currentScene;
+        if (currentScene.name == "SplashScene")
+        {
+            
+        }
+    }
 
     public void BackToPage(GameObject page)
     {
-        for (int i = 0; i < pages.Length; i++)
+        for (int i = 0; i < pages.Count; i++)
         {
             pages[i].SetActive(false);
         }
@@ -65,11 +75,7 @@ public class MainManager : MonoBehaviour
         {
             
         }
-    }
-    public void ChooseLab()
-    {
-        SceneManager.LoadScene("SampleScene");
-    }
+    }    
 }
 public class User
 {

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4357294086829853058}
   - component: {fileID: 4357294086829853059}
   - component: {fileID: 908644817}
+  - component: {fileID: 617982919}
   m_Layer: 8
   m_Name: vessel1
   m_TagString: Dragable
@@ -162,3 +163,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 0
+--- !u!114 &617982919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357294086829853056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9909b736b426549b35b07cb4266a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toolName: 
+  description: 
+  toolData: {fileID: 11400000, guid: 01b84bca4de6daa4ba3d111fdaf8d3ee, type: 2}

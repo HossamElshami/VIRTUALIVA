@@ -11,20 +11,20 @@ public class Desk : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            UI_Manager.instance.pcName.gameObject.SetActive(true);
-            UI_Manager.instance.print_Text(data);
+            UI_Manager.instance.botText.gameObject.SetActive(true);
+            //UI_Manager.instance.print_Text(data);
         }
     }
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
-            UI_Manager.instance.pcName.gameObject.SetActive(true);
-            UI_Manager.instance.print_Text(data);
+            UI_Manager.instance.botText.gameObject.SetActive(true);
+            //UI_Manager.instance.print_Text(data);
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        UI_Manager.instance.pcName.gameObject.SetActive(false);
+        UI_Manager.instance.botText.gameObject.SetActive(false);
     }
 }

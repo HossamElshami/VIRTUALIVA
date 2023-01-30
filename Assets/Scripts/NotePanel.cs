@@ -9,20 +9,20 @@ public class NotePanel : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            UI_Manager.instance.pcName.gameObject.SetActive(true);
-            UI_Manager.instance.print_Text(message);
+            UI_Manager.instance.botText.gameObject.SetActive(true);
+            //UI_Manager.instance.print_Text(message);
         }
     }
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
-            UI_Manager.instance.pcName.gameObject.SetActive(true);
-            UI_Manager.instance.print_Text(message);
+            UI_Manager.instance.botText.gameObject.SetActive(true);
+            //UI_Manager.instance.print_Text(message);
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        UI_Manager.instance.pcName.gameObject.SetActive(false);
+        UI_Manager.instance.botText.gameObject.SetActive(false);
     }
 }

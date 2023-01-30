@@ -1,18 +1,25 @@
+using TMPro;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
 
 public class UI_Manager : MonoBehaviour
 {
-    public GameObject menu;
-    public GameObject questPanel;
-    public GameObject inventoryPanel;
+    [Header("Panels")]
+    public Panel menu;
+    public Panel questPanel;
+    public Panel inventoryPanel;
+    public GameObject botPanel;
+    public GameObject editPanel;
     public GameObject itemPanel;
-    public List<GameObject> panels;
-    public GameObject _quest;
-    public TMP_Text pcName;
+    public List<Panel> panels;
+    //public GameObject _quest;
+    [Header("Text")]
+    public TMP_Text botText;
+    public TMP_Text itemNameText;
     public bool panelOpen { get; private set; }
+    [SerializeField]
+    Panel openedPanel;
 
     public static UI_Manager instance;
     private void Awake()
@@ -22,37 +29,70 @@ public class UI_Manager : MonoBehaviour
         else
             Destroy(gameObject);        
     }
+    private void Start()
+    {
+        for (int i = 0; i < panels.Count; i++)
+        {
+            panels[i].gameObject.SetActive(false);
+        }
+    }
     private void Update()
     {
-        checkPanelsOpen();
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (InputManager.instance.inputDown(KeyCode.Escape) && !menu.gameObject.activeInHierarchy)
         {
-            menu.SetActive(!menu.activeInHierarchy);
-            Cursor.lockState = menu.activeInHierarchy ? CursorLockMode.Confined : CursorLockMode.Locked;
-            Cursor.visible = menu.activeInHierarchy;
+            openPanel(menu);
         }
-        questPanel.SetActive(!menu.activeInHierarchy);
-        if (Input.GetKeyDown(KeyCode.Q)) inventoryPanel.SetActive(!inventoryPanel.activeInHierarchy);
-    }
-    public void print_Text(Desk_SO data)
-    {
-          pcName.text = data.Name + "-" + data.PCNumber + " (" + data.LabName + "-" + data.LabNumber + ")";
-    }
-    public void print_Text(string text)
-    {
-        pcName.text = text;
-    }
-    public void AddQuestToPanel()
-    {
-        questPanel.SetActive(true);
-    }
-    void checkPanelsOpen()
-    {
-        for(int i = 0; i < panels.Count; i++)
+        else if (InputManager.instance.inputDown(KeyCode.Escape) && menu.gameObject.activeInHierarchy             )
         {
-            if (panels[i].activeInHierarchy) panelOpen = true;
-            else panelOpen = false;
+            closePanels();
         }
-    }
 
+        if (!panelOpen) VisibleCursor(false);
+        //if (InputManager.instance.inputDown(KeyCode.Q)) openPanel(inventoryPanel, !inventoryPanel.gameObject.activeInHierarchy);
+        //if (openedPanel && openedPanel.gameObject.activeInHierarchy) VisibleCursor(openedPanel.HideCursor);
+        //else VisibleCursor(true);
+    }
+    public void botPrint(string text)
+    {
+        botText.gameObject.SetActive(true);
+        botText.text = text;
+        closePanels();
+        botPanel.SetActive(true);
+        Invoke("closePanelDelay(botPanel)", 3f);
+    }
+    void closePanelDelay(GameObject panel)
+    {
+        panel.SetActive(false);
+    }
+    void AddQuestToPanel()
+    {
+        openPanel(questPanel);
+    }
+    void itemProperties()
+    {
+        closePanels();
+        itemPanel.SetActive(true);
+    }
+    public void openPanel(Panel panel)
+    {
+        closePanels();
+        panel.gameObject.SetActive(true);
+        openedPanel = panel;
+        panelOpen = true;
+        VisibleCursor(panel.VisibleCursor);
+    }
+    public void closePanels()
+    {
+        if (!panelOpen) return;
+        for (int i = 0; i < panels.Count; i++)
+        {
+            panelOpen = false;
+            panels[i].gameObject.SetActive(false);
+        }
+    }
+    void VisibleCursor(bool hide)
+    {
+        Cursor.lockState = !hide ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = hide;
+    }
 }

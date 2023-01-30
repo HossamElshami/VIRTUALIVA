@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Tool))]
 [RequireComponent(typeof(Outline))]
 public class DragableItem : MonoBehaviour, Item
 {
-    public bool isDragging = false, onTable = false;
+    public bool isDragging = false;
 
     float rotY;
     Rigidbody rb;
@@ -37,16 +38,11 @@ public class DragableItem : MonoBehaviour, Item
         collider.isTrigger = isDragging;       
         outline.enabled = this.gameObject == LabManager.instance.character.GetComponent<DragingSystem>().selectedObject ? true : false;
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        onTable = collision.transform.tag == "Table" ? true : false;
-    }
     void itemOptions()
     {
         if (InputManager.instance.inputDown(KeyCode.E))
         {
-            transform.rotation = LabManager.instance.character.GetComponent<DragingSystem>().itemTransform.rotation;
-            transform.position = LabManager.instance.character.GetComponent<DragingSystem>().itemTransform.position;
+            transform.SetPositionAndRotation(LabManager.instance.character.GetComponent<DragingSystem>().itemTransform.position, LabManager.instance.character.GetComponent<DragingSystem>().itemTransform.rotation);
             transform.localScale = Vector3.one;
         }
         if (InputManager.instance.inputDown(KeyCode.R))

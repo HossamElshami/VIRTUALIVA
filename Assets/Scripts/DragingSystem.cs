@@ -17,6 +17,7 @@ public class DragingSystem : MonoBehaviour
 
     private void Update()
     {
+        if (UI_Manager.instance.panelOpen) return;
         shadow.gameObject.SetActive(isDragging);
         if (selectedObject)
         {
@@ -25,18 +26,18 @@ public class DragingSystem : MonoBehaviour
                 if (InputManager.instance.inputDown(KeyCode.Mouse0))
                     isDragging = !isDragging;
                 DragObject();
-                UI_Manager.instance.pcName.gameObject.SetActive(false);
+                UI_Manager.instance.botText.gameObject.SetActive(false);
             }
             else
             {
                 if (InputManager.instance.LeftMouseDown)
-                {
-                    UI_Manager.instance.print_Text("Object too far to drag it");
-                    UI_Manager.instance.pcName.gameObject.SetActive(InputManager.instance.LeftMouseDown);
+                {                    
+                    UI_Manager.instance.botPrint("Object too far to drag it");
+                    //UI_Manager.instance.botPanel.gameObject.SetActive(InputManager.instance.LeftMouseDown);
                 }
             }            
         }else
-            UI_Manager.instance.pcName.gameObject.SetActive(false);
+            UI_Manager.instance.botPanel.SetActive(false);
         if (!isDragging)
         {
             MakeRayCast();
@@ -65,10 +66,14 @@ public class DragingSystem : MonoBehaviour
     }
     void DragObject()
     {
-        UI_Manager.instance.itemPanel.SetActive(isDragging);
+        if (!UI_Manager.instance.itemPanel.activeInHierarchy)
+        {
+            UI_Manager.instance.closePanels();
+            UI_Manager.instance.itemPanel.SetActive(true);
+        }
         selectedObject.GetComponent<DragableItem>().isDragging = isDragging;
         selectedObject.transform.parent = isDragging ? itemTransform : selectedObject.GetComponent<DragableItem>().parent;
-
+        if (isDragging) EditItemPage.instance.mainObject = selectedObject;
         RaycastHit hit;
         if (Physics.Raycast(selectedObject.transform.position, Vector3.down, out hit))
             shadow.position = new Vector3(selectedObject.transform.position.x, hit.point.y + 0.1f, selectedObject.transform.position.z);            

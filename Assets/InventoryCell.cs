@@ -12,7 +12,7 @@ public class InventoryCell : MonoBehaviour
     public void makeItem(GameObject item)
     {
         GameObject go = Instantiate(item, parent.position, parent.rotation);
-        UI_Manager.instance.inventoryPanel.SetActive(false);
+        UI_Manager.instance.openPanel(UI_Manager.instance.inventoryPanel);
         QuestManager.instance.mainObject = go;
     }
 }

@@ -63,22 +63,32 @@
     <Compile Include="Assets\FadeScreen.cs" />
     <Compile Include="Assets\PendulumQuest.cs" />
     <Compile Include="Assets\Scripts\Desk_SO.cs" />
+    <Compile Include="Assets\DialogBox.cs" />
+    <Compile Include="Assets\QuestMaker.cs" />
+    <Compile Include="Assets\HomePage.cs" />
+    <Compile Include="Assets\HexagonBackground.cs" />
+    <Compile Include="Assets\RigisterManager.cs" />
     <Compile Include="Assets\Scripts\NotePanel.cs" />
     <Compile Include="Assets\Scripts\MoveCubeQuest.cs" />
     <Compile Include="Assets\SpecificObject.cs" />
     <Compile Include="Assets\Scripts\Quest.cs" />
-    <Compile Include="Assets\Scripts\Quest_SO.cs" />
+    <Compile Include="Assets\Manager.cs" />
     <Compile Include="Assets\Scripts\Desk.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
+    <Compile Include="Assets\Scripts\Tool_SO.cs" />
     <Compile Include="Assets\SaveableObject.cs" />
+    <Compile Include="Assets\Scripts\Tool.cs" />
+    <Compile Include="Assets\Scripts\QuestStep.cs" />
     <Compile Include="Assets\Scripts\DragingSystem.cs" />
     <Compile Include="Assets\InventoryCell.cs" />
-    <Compile Include="Assets\Data\Quest\IQuestable.cs" />
+    <Compile Include="Assets\Data\Quests\IQuestable.cs" />
+    <Compile Include="Assets\EditItemPage.cs" />
     <Compile Include="Assets\Scripts\DragableItem.cs" />
     <Compile Include="Assets\MainManager.cs" />
+    <Compile Include="Assets\QuestSystem.cs" />
     <Compile Include="Assets\SaveGameManager.cs" />
-    <Compile Include="Assets\RigisterManager.cs" />
-    <Compile Include="Assets\DialogBox.cs" />
+    <Compile Include="Assets\TriggerBox.cs" />
+    <Compile Include="Assets\Panel.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -695,6 +705,9 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>

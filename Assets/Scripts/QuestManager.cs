@@ -56,9 +56,8 @@ public class QuestManager : MonoBehaviour
         for (int i = 0; i < questSteps; i++)
         {
             GameObject q = Instantiate(questPref, UI_Manager.instance.questPanel.transform.GetChild(0).transform);
-            q.GetComponent<TMP_Text>().text = quest._questSteps[i].ID + " - " + quest._questSteps[i].description;
+            //q.GetComponent<TMP_Text>().text = quest._questSteps[i].ID + " - " + quest._questSteps[i].description;
             //q.transform.parent = UI_Manager.instance.questPanel.transform;
         }
-    }
-
+    }    
 }

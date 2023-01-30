@@ -7,6 +7,7 @@ TagManager:
   - Dragable
   - ItemPoint
   - Table
+  - correcttable
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Player
   - Post prossocing
   - Dragging
-  - 
+  - Edit Items
   - 
   - 
   - 

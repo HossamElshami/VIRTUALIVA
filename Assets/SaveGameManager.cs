@@ -24,7 +24,7 @@ public class SaveGameManager : MonoBehaviour
 
     public void Save()
     {
-        PlayerPrefs.SetInt(Application.loadedLevel.ToString(), SaveableObjects.Count);
+        PlayerPrefs.SetInt(SceneManager.GetActiveScene().ToString(), SaveableObjects.Count);
         for (int i = 0; i < SaveableObjects.Count; i++)
         {
             SaveableObjects[i].Save(i);
@@ -43,10 +43,10 @@ public class SaveGameManager : MonoBehaviour
 
         SaveableObjects.Clear();
 
-        int objectCount = PlayerPrefs.GetInt(Application.loadedLevel.ToString());
+        int objectCount = PlayerPrefs.GetInt(SceneManager.GetActiveScene().ToString());
         for (int i = 0; i < objectCount; i++)
         {
-            string[] value = PlayerPrefs.GetString(Application.loadedLevel.ToString() + "-" + i.ToString()).Split('_');
+            string[] value = PlayerPrefs.GetString(SceneManager.GetActiveScene().ToString() + "-" + i.ToString()).Split('_');
             GameObject tmp = Instantiate(Resources.Load(value[0].Replace("(Clone)", "")) as GameObject);
             tmp.GetComponent<SaveableObject>().Load(value);
         }

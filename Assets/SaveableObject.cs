@@ -18,7 +18,7 @@ public abstract class SaveableObject : MonoBehaviour
 
     public virtual void Save(int id)
     {
-        PlayerPrefs.SetString(Application.loadedLevel.ToString() + "-" + id.ToString(), gameObject.name + "_" + transform.position.ToString() + "_" + transform.localScale.ToString() + "_" + transform.localRotation.ToString());
+        PlayerPrefs.SetString(SceneManager.GetActiveScene().ToString() + "-" + id.ToString(), gameObject.name + "_" + transform.position.ToString() + "_" + transform.localScale.ToString() + "_" + transform.localRotation.ToString());
     }
     public virtual void Load(string[] values)
     {
