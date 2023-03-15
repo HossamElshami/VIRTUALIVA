@@ -56,39 +56,40 @@
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
     <Compile Include="Assets\Scripts\LabManager.cs" />
-    <Compile Include="Assets\InputManager.cs" />
-    <Compile Include="Assets\PendulumQuest.cs" />
-    <Compile Include="Assets\Scripts\Desk_SO.cs" />
     <Compile Include="Assets\HomePage.cs" />
-    <Compile Include="Assets\HexagonBackground.cs" />
-    <Compile Include="Assets\Scripts\MoveCubeQuest.cs" />
     <Compile Include="Assets\Manager.cs" />
-    <Compile Include="Assets\Scripts\Desk.cs" />
     <Compile Include="Assets\Scripts\Tool_SO.cs" />
     <Compile Include="Assets\Scripts\DragingSystem.cs" />
     <Compile Include="Assets\InventoryCell.cs" />
     <Compile Include="Assets\Scripts\DragableItem.cs" />
     <Compile Include="Assets\MainManager.cs" />
-    <Compile Include="Assets\SaveGameManager.cs" />
-    <Compile Include="Assets\Scripts\QuestManager.cs" />
     <Compile Include="Assets\AnimationEvents.cs" />
-    <Compile Include="Assets\Scripts\UI_Manager.cs" />
     <Compile Include="Assets\FadeScreen.cs" />
     <Compile Include="Assets\DialogBox.cs" />
-    <Compile Include="Assets\QuestMaker.cs" />
-    <Compile Include="Assets\RigisterManager.cs" />
     <Compile Include="Assets\Scripts\NotePanel.cs" />
     <Compile Include="Assets\SpecificObject.cs" />
     <Compile Include="Assets\Scripts\Quest.cs" />
-    <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\SaveableObject.cs" />
     <Compile Include="Assets\Scripts\Tool.cs" />
     <Compile Include="Assets\Scripts\QuestStep.cs" />
-    <Compile Include="Assets\Panel.cs" />
-    <Compile Include="Assets\Data\Quests\IQuestable.cs" />
     <Compile Include="Assets\EditItemPage.cs" />
     <Compile Include="Assets\QuestSystem.cs" />
+    <Compile Include="Assets\InputManager.cs" />
+    <Compile Include="Assets\PendulumQuest.cs" />
+    <Compile Include="Assets\Scripts\Desk_SO.cs" />
+    <Compile Include="Assets\HexagonBackground.cs" />
+    <Compile Include="Assets\Scripts\MoveCubeQuest.cs" />
+    <Compile Include="Assets\Scripts\Desk.cs" />
+    <Compile Include="Assets\SaveGameManager.cs" />
+    <Compile Include="Assets\Scripts\QuestManager.cs" />
+    <Compile Include="Assets\Scripts\UI_Manager.cs" />
+    <Compile Include="Assets\QuestMaker.cs" />
+    <Compile Include="Assets\RigisterManager.cs" />
+    <Compile Include="Assets\Scripts\Item.cs" />
+    <Compile Include="Assets\Panel.cs" />
+    <Compile Include="Assets\Data\Quests\IQuestable.cs" />
     <Compile Include="Assets\TriggerBox.cs" />
+    <Compile Include="Assets\Shaders\Liquid\Wobble.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -691,6 +692,9 @@
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.XR.Management.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.XR.Management.Editor.dll</HintPath>
     </Reference>
@@ -708,6 +712,12 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
@@ -742,6 +752,9 @@
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
       <HintPath>Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
@@ -771,18 +784,6 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder">
-      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AddOns.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
