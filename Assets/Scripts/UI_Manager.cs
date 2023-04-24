@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 public class UI_Manager : MonoBehaviour
@@ -11,15 +10,22 @@ public class UI_Manager : MonoBehaviour
     public Panel inventoryPanel;
     public GameObject botPanel;
     public GameObject editPanel;
+    public GameObject optionPanel;
+    public GameObject dragingPanel;
     public GameObject itemPanel;
     public List<Panel> panels;
     //public GameObject _quest;
     [Header("Text")]
     public TMP_Text botText;
     public TMP_Text itemNameText;
+    public TMP_Text hoverItemNameText;
     public bool panelOpen { get; private set; }
     [SerializeField]
-    Panel openedPanel;
+    GameObject openedPanel;
+    [Header("Menu")]
+    public TMP_Text MenuTitle;
+    public TMP_Text MenuDescription;
+    public MenuButtonInfoSPO defaultData;
 
     public static UI_Manager instance;
     private void Awake()
@@ -42,11 +48,15 @@ public class UI_Manager : MonoBehaviour
         {
             openPanel(menu);
         }
-        else if (InputManager.instance.inputDown(KeyCode.Escape) && menu.gameObject.activeInHierarchy             )
+        else if (InputManager.instance.inputDown(KeyCode.Escape) && menu.gameObject.activeInHierarchy)
         {
             closePanels();
         }
-
+        if (DragingSystem.instance.isDragging && InputManager.instance.inputDown(KeyCode.E))
+            optionPanel.SetActive(!optionPanel.activeInHierarchy);
+        else if(!DragingSystem.instance.isDragging)
+            optionPanel.SetActive(false);
+        //hoverItemNameText.gameObject.SetActive(!optionPanel.activeInHierarchy);
         if (!panelOpen) VisibleCursor(false);
         //if (InputManager.instance.inputDown(KeyCode.Q)) openPanel(inventoryPanel, !inventoryPanel.gameObject.activeInHierarchy);
         //if (openedPanel && openedPanel.gameObject.activeInHierarchy) VisibleCursor(openedPanel.HideCursor);
@@ -58,11 +68,14 @@ public class UI_Manager : MonoBehaviour
         botText.text = text;
         closePanels();
         botPanel.SetActive(true);
-        Invoke("closePanelDelay(botPanel)", 3f);
+        openedPanel = botPanel;
+        Invoke(nameof(closePanelDelay), 3f);
     }
-    void closePanelDelay(GameObject panel)
+    void closePanelDelay()
     {
-        panel.SetActive(false);
+        if (!openedPanel) return;
+        openedPanel.SetActive(false);
+        openedPanel = null;
     }
     void AddQuestToPanel()
     {
@@ -77,7 +90,7 @@ public class UI_Manager : MonoBehaviour
     {
         closePanels();
         panel.gameObject.SetActive(true);
-        openedPanel = panel;
+        openedPanel = panel.gameObject;
         panelOpen = true;
         VisibleCursor(panel.VisibleCursor);
     }
@@ -94,5 +107,18 @@ public class UI_Manager : MonoBehaviour
     {
         Cursor.lockState = !hide ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = hide;
+    }
+    public void ShowInformation(MenuButtonInfoSPO data, bool show)
+    {
+        if (show)
+        {
+            MenuTitle.text = data.title;
+            MenuDescription.text = data.description;
+        }
+        else
+        {
+            MenuTitle.text = defaultData.title;
+            MenuDescription.text = defaultData.description;
+        }
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -7,19 +5,18 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private float mouseSensitivity = 100f;
     private new GameObject camera;
-    [SerializeField]
     float moveX, moveY, rotateX = 0, Speed = 5f;
 
     private void Start()
     {
         camera = Camera.main.gameObject;
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;        
     }
 
     void Update()
     {
-        updateMouseVisibale();
+        //updateMouseVisibale();
         RotateCamera(InputManager.instance.MouseX, InputManager.instance.MouseY);
         moveX = InputManager.instance.HValue;
         moveY = InputManager.instance.VValue;

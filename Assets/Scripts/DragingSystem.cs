@@ -9,18 +9,27 @@ public class DragingSystem : MonoBehaviour
     public GameObject selectedObject { get; private set; }
     [field:SerializeField] public Transform itemTransform { get; private set; }
 
-    bool isDragging = false;
+    public bool isDragging = false;
     Vector3 hitPoint;
     [SerializeField]
     LayerMask draggingItemLayer;
     public Transform shadow;
 
+    public static DragingSystem instance;
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
     private void Update()
     {
         if (UI_Manager.instance.panelOpen) return;
         shadow.gameObject.SetActive(isDragging);
         if (selectedObject)
         {
+            UI_Manager.instance.hoverItemNameText.text = selectedObject.name;
             if (Vector3.Distance(transform.position, hitPoint) < 5 || isDragging)
             {
                 if (InputManager.instance.inputDown(KeyCode.Mouse0))
@@ -31,17 +40,23 @@ public class DragingSystem : MonoBehaviour
             else
             {
                 if (InputManager.instance.LeftMouseDown)
-                {                    
+                {
                     UI_Manager.instance.botPrint("Object too far to drag it");
                     //UI_Manager.instance.botPanel.gameObject.SetActive(InputManager.instance.LeftMouseDown);
                 }
-            }            
-        }else
+            }
+        }
+        else
+        {
             UI_Manager.instance.botPanel.SetActive(false);
+            UI_Manager.instance.hoverItemNameText.text = string.Empty;
+        }
         if (!isDragging)
         {
             MakeRayCast();
         }
+
+        UI_Manager.instance.dragingPanel.SetActive(isDragging && !UI_Manager.instance.optionPanel.activeInHierarchy);
     }
     void MakeRayCast()
     {
@@ -69,7 +84,7 @@ public class DragingSystem : MonoBehaviour
         if (!UI_Manager.instance.itemPanel.activeInHierarchy)
         {
             UI_Manager.instance.closePanels();
-            UI_Manager.instance.itemPanel.SetActive(true);
+            //UI_Manager.instance.itemPanel.SetActive(true);
         }
         selectedObject.GetComponent<DragableItem>().isDragging = isDragging;
         selectedObject.transform.parent = isDragging ? itemTransform : selectedObject.GetComponent<DragableItem>().parent;
