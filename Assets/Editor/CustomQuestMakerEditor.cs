@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
@@ -40,7 +38,7 @@ public class CustomQuestMakerEditor : Editor
                 else if (questName != string.Empty && !isExist)
                 {
                     quest.createNewQuest(questName);
-                    Selection.activeGameObject = quest.quests[quest.quests.Count - 1];
+                    Selection.activeGameObject = quest.quests[quest.quests.Count - 1].gameObject;
                     questName = "";
                 }
                 else Debug.LogWarning("You should input quest name first");

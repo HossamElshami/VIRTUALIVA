@@ -521,55 +521,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66888687}
   m_CullTransparentMesh: 1
---- !u!1 &166955111
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 166955113}
-  - component: {fileID: 166955112}
-  m_Layer: 0
-  m_Name: HexagonBackground
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &166955112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166955111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ce7469cad9bf20459a2753fd0497417, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hexagonPrefab: {fileID: 7391218368260690580, guid: 162e03fd052b4a7429ade3e17a0aae6f, type: 3}
-  hexagonList: []
-  gridXOffset: 3.5
-  gridYOffset: 1
-  offsetY: 0
-  offsetX: 0
---- !u!4 &166955113
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166955111}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
 --- !u!1 &167439773
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,9 +624,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 842202564}
-        m_TargetAssemblyTypeName: Server, Assembly-CSharp
-        m_MethodName: OnLoginButtonClicked
+      - m_Target: {fileID: 727972524}
+        m_TargetAssemblyTypeName: Login, Assembly-CSharp
+        m_MethodName: login
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1534,12 +1485,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0ff3f2f338f6d4e869d47f76126160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Fade: {fileID: 1702657772}
+  dialogBox: {fileID: 919707231}
   pages:
   - {fileID: 1389806496}
   - {fileID: 727972520}
   - {fileID: 544532237}
-  Fade: {fileID: 1702657772}
-  dialogBox: {fileID: 919707231}
 --- !u!4 &302569895
 Transform:
   m_ObjectHideFlags: 0
@@ -2981,7 +2932,7 @@ MonoBehaviour:
   usernameField: {fileID: 1072912669}
   emailField: {fileID: 1142011913}
   passwordField: {fileID: 356508317}
-  confirmPasswordFieldl: {fileID: 1533601813}
+  confirmPasswordField: {fileID: 0}
   registerType: {fileID: 396738340}
 --- !u!114 &544532240
 MonoBehaviour:
@@ -4680,6 +4631,7 @@ GameObject:
   - component: {fileID: 727972521}
   - component: {fileID: 727972523}
   - component: {fileID: 727972522}
+  - component: {fileID: 727972524}
   m_Layer: 5
   m_Name: LoginPage
   m_TagString: Untagged
@@ -4746,6 +4698,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727972520}
   m_CullTransparentMesh: 1
+--- !u!114 &727972524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727972520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0581b87465e63d441ad38d659391e3ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EmailInput: {fileID: 1574870561}
+  PasswordInput: {fileID: 1367024502}
+  LoginButton: {fileID: 167439776}
 --- !u!1 &728235376
 GameObject:
   m_ObjectHideFlags: 0
@@ -5465,6 +5432,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 842202563}
+  - component: {fileID: 842202565}
   - component: {fileID: 842202564}
   m_Layer: 0
   m_Name: Server
@@ -5496,13 +5464,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 842202562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 476c973546f5a3349a6f29e631fffae0, type: 3}
+  m_Script: {fileID: 11500000, guid: 2879ee45ea4e5ae44b9477af3c7b84f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  email_InputField: {fileID: 1574870561}
-  password_InputField: {fileID: 1367024502}
-  url: http://localhost/virtualiva/auth/
-  loginBtn: {fileID: 167439776}
+  Web: {fileID: 842202565}
+--- !u!114 &842202565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842202562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c51d1da5c7929f54b9845b6a4a697c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &845801167
 GameObject:
   m_ObjectHideFlags: 0

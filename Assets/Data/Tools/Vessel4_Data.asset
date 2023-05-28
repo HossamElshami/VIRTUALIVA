@@ -18,8 +18,10 @@ MonoBehaviour:
   toolVersion: 1.0.0
   toolIcon: {fileID: 0}
   minSize: 0.5
-  maxSize: 2
+  maxSize: 1.5
   Scaleable: 1
   Moveable: 1
   Rotateable: 1
   Skinable: 0
+  Options: 0
+  Material: 0
