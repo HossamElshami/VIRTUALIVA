@@ -1,8 +1,6 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Audio;
-using System.Collections;
 using System.Collections.Generic;
 
 public class SettingsManager : MonoBehaviour
@@ -27,7 +25,7 @@ public class SettingsManager : MonoBehaviour
                 currentResolutionIndex = i;
         }
         resolutionDropDown.AddOptions(options);
-        resolutionDropDown.value =   currentResolutionIndex;
+        resolutionDropDown.value = currentResolutionIndex;
         resolutionDropDown.RefreshShownValue();
     }
     public void MainAudioVolume(float volume)
@@ -37,13 +35,19 @@ public class SettingsManager : MonoBehaviour
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
-    } 
+    }
     public void SetFullScreen(bool IsFullScreen)
-    {        
+    {
         Screen.fullScreen = IsFullScreen;
-    }   
+    }
     public void SetMute(bool IsMute)
     {
         AudioListener.volume = IsMute ? 0 : 1;
     }
+    public void SetResolution(int resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
 }
+

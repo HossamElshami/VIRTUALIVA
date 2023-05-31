@@ -3,7 +3,10 @@
     {
         "**/.DS_Store":true,
         "**/.git":true,
+<<<<<<< Updated upstream
         "**/.gitignore":true,
+=======
+>>>>>>> Stashed changes
         "**/.gitmodules":true,
         "**/*.booproj":true,
         "**/*.pidb":true,

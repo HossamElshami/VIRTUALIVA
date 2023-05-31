@@ -14,7 +14,7 @@ public class MainManager : MonoBehaviour
     private List<User> users;
     public enum dialogType
     {
-        Error, Attention, Ask ,Confirmation
+        Error, Attention, Ask, Confirmation
     }
     Scene currentScene;
 
@@ -31,11 +31,11 @@ public class MainManager : MonoBehaviour
         users = new List<User>();
     }
     private void Update()
-    {       
+    {
         currentScene = currentScene == null ? SceneManager.GetActiveScene() : currentScene;
         if (currentScene.name == "SplashScene")
         {
-            
+
         }
     }
 
@@ -50,9 +50,8 @@ public class MainManager : MonoBehaviour
     public void showDialogBox(string message, dialogType dialogType)
     {
         dialogBox.gameObject.SetActive(true);
-        dialogBox.message.text = message;
-        dialogBox.Show(dialogType);
-    } 
+        dialogBox.Show(dialogType, message);
+    }
     public void showDialogBox(string message, dialogType dialogType, float timeToHide)
     {
 
@@ -64,7 +63,7 @@ public class MainManager : MonoBehaviour
         for (int i = 0; i < _users; i++)
         {
             usersId.Add(i);
-            
+
         }
         foreach (User user in users)
         {
@@ -73,9 +72,9 @@ public class MainManager : MonoBehaviour
         }
         for (int i = 0; i < _users; i++)
         {
-            
+
         }
-    }    
+    }
 }
 public class User
 {

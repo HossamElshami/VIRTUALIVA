@@ -14,16 +14,24 @@ public class Web : MonoBehaviour
         using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/virtualiva/auth/login.php", form))
         {
             yield return www.SendWebRequest();
+            if (www.downloadHandler.text != string.Empty && www.downloadHandler.text != null)
+            {
+                string[] data = www.downloadHandler.text.Split('"');
 
-            if (www.result != UnityWebRequest.Result.Success)
-            {
-                Debug.Log(www.error);
-            }
-            else
-            {
-                var xr = JsonConvert.DeserializeObject<user>(www.downloadHandler.text);
-                Main.Instance.userdata = xr.data;
-                SceneManager.LoadScene("MainMenu");
+                if (www.isNetworkError || www.isHttpError)
+                {
+                    Debug.Log(www.error);
+                }
+                else if (data[data.Length - 2] != "Wrong email or password!")
+                {
+                    var xr = JsonConvert.DeserializeObject<user>(www.downloadHandler.text);
+                    Main.Instance.userdata = xr.data;
+                    SceneManager.LoadScene("MainMenu");
+                }
+                else
+                {
+                    MainManager.instance.showDialogBox(data[data.Length - 2], MainManager.dialogType.Attention);
+                }
             }
         }
     }

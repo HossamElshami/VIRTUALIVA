@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1351696428988180616
+--- !u!114 &-3998076756512199541
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,20 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 11
+  version: 4
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Clapped Mat
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: _DISABLE_SSR_TRANSPARENT _NORMALMAP_TANGENT_SPACE
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _DISABLE_SSR_TRANSPARENT
+  - _NORMALMAP_TANGENT_SPACE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -44,11 +47,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap:
-        m_Texture: {fileID: 2800000, guid: bff0242d5e22b2f45941f2d0293a1aa1, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: bff0242d5e22b2f45941f2d0293a1aa1, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMap:
@@ -108,7 +111,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: bff0242d5e22b2f45941f2d0293a1aa1, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
@@ -175,6 +178,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AORemapMax: 1
     - _AORemapMin: 0
@@ -240,7 +244,7 @@ Material:
     - _EnergyConservingSpecularColor: 1
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.234
     - _GlossyReflections: 1
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
@@ -257,8 +261,8 @@ Material:
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 0
     - _MaterialID: 1
-    - _Metallic: 0
-    - _MetallicRemapMax: 0
+    - _Metallic: 0.47364822
+    - _MetallicRemapMax: 0.47364822
     - _MetallicRemapMin: 0
     - _Mode: 0
     - _NormalMapSpace: 0
@@ -279,8 +283,8 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _Smoothness: 0
-    - _SmoothnessRemapMax: 0
+    - _Smoothness: 0.234
+    - _SmoothnessRemapMax: 0.234
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularAAScreenSpaceVariance: 0.1
@@ -332,9 +336,9 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0, g: 0.9902081, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0, g: 0.9902081, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
@@ -352,7 +356,20 @@ Material:
     - _UvOffset: {r: 0, g: 0, b: 0, a: 0}
     - _UvTiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &7024009356720475478
+--- !u!114 &8669144130874090432
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 11
+--- !u!114 &8929881597692247264
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -364,4 +381,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 4
+  version: 5

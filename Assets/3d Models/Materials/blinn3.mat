@@ -1,6 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< Updated upstream
 --- !u!114 &-8155009309712762950
+=======
+--- !u!114 &-2266363915229640319
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

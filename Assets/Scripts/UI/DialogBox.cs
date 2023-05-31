@@ -22,10 +22,10 @@ public class DialogBox : MonoBehaviour
         instance = this;
     }
     public void CloseApp()
-    {        
+    {
         Application.Quit();
     }
-    public void Show(MainManager.dialogType dialogType)
+    public void Show(MainManager.dialogType dialogType, string msg)
     {
         switch (dialogType)
         {
@@ -50,5 +50,6 @@ public class DialogBox : MonoBehaviour
                 boxIcon.color = confirmationColor;
                 break;
         }
+        message.text = msg;
     }
 }
