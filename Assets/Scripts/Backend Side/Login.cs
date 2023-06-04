@@ -7,15 +7,15 @@ public class Login : MonoBehaviour
     public TMP_InputField EmailInput;
     public TMP_InputField PasswordInput;
     public Button LoginButton;
-    void Start()
-    {
-        // LoginButton.onClick.AddListener(() =>
-        // {
-        //   StartCoroutine( Main.Instance.Web.Login(EmailInput.text, PasswordInput.text));
-        // });
-    }
     public void login()
     {
-        StartCoroutine(Main.Instance.Web.Login(EmailInput.text, PasswordInput.text));
+        if (EmailInput.text != string.Empty && PasswordInput.text != string.Empty)
+        {
+            StartCoroutine(Main.Instance.Web.Login(EmailInput.text, PasswordInput.text));
+        }
+        else if (EmailInput.text == string.Empty || PasswordInput.text == string.Empty)
+        {
+            MainManager.instance.showDialogBox("Please enter your email and password and try again.", MainManager.dialogType.Attention);
+        }
     }
 }

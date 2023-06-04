@@ -17,7 +17,16 @@ public class ProfileManager : MonoBehaviour
     }
     public void SetProfileData(userData data)
     {
-        profileName.text = data.user_name;
-        profileType.text = data.user_type;
+        profileName.text = FirstCharSubstring(data.user_name);
+        profileType.text = FirstCharSubstring(data.user_type);
+    }
+    public string FirstCharSubstring(string input)
+    {
+        if (string.IsNullOrEmpty(input))
+        {
+            return string.Empty;
+        }
+
+        return $"{input[0].ToString().ToUpper()}{input.Substring(1)}";
     }
 }

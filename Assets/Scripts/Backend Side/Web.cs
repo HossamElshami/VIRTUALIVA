@@ -19,9 +19,7 @@ public class Web : MonoBehaviour
                 string[] data = www.downloadHandler.text.Split('"');
 
                 if (www.isNetworkError || www.isHttpError)
-                {
                     Debug.Log(www.error);
-                }
                 else if (data[data.Length - 2] != "Wrong email or password!")
                 {
                     var xr = JsonConvert.DeserializeObject<user>(www.downloadHandler.text);
@@ -29,9 +27,7 @@ public class Web : MonoBehaviour
                     SceneManager.LoadScene("MainMenu");
                 }
                 else
-                {
-                    MainManager.instance.showDialogBox(data[data.Length - 2], MainManager.dialogType.Attention);
-                }
+                    MainManager.instance.showDialogBox(data[data.Length - 2] + "<br>Please try again.", MainManager.dialogType.Error);
             }
         }
     }
@@ -49,13 +45,9 @@ public class Web : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.result != UnityWebRequest.Result.Success)
-            {
                 Debug.Log(www.error);
-            }
             else
-            {
                 Debug.Log(www.downloadHandler.text);
-            }
         }
     }
 }
