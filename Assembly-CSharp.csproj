@@ -105,6 +105,7 @@
     <Compile Include="Assets\Data\Quests\IQuestable.cs" />
     <Compile Include="Assets\Scripts\Managers\AI_Manager.cs" />
     <Compile Include="Assets\Scripts\Core\TriggerBox.cs" />
+    <Compile Include="Assets\Shaders\Liquid\Wobble.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
