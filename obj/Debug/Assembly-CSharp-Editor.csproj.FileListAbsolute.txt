@@ -1,0 +1,2 @@
+C:\Users\hossa\VIRTUALIVA\obj\Debug\Assembly-CSharp-Editor.csproj.AssemblyReference.cache
+C:\Users\hossa\VIRTUALIVA\obj\Debug\Assembly-CSharp-Editor.csproj.CoreCompileInputs.cache
