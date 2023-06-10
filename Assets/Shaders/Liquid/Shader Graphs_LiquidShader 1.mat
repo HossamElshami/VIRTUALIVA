@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_LiquidShader
+  m_Name: Shader Graphs_LiquidShader 1
   m_Shader: {fileID: -6465566751694194690, guid: 1280a7310cb57624f91925c77f49ca63, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -57,6 +57,6 @@ Material:
     - _WobbleX: 0
     - _WobbleZ: 0
     m_Colors:
-    - Color_8e6a14ed1e9a4892b25bd472b0e0a78e: {r: 0, g: 0.61612964, b: 0.6792453, a: 1}
-    - Color_d69437e260dc4b4da71b6692822dd46f: {r: 0, g: 0.90588236, b: 1, a: 1}
+    - Color_8e6a14ed1e9a4892b25bd472b0e0a78e: {r: 0.6784314, g: 0.01877397, b: 0, a: 1}
+    - Color_d69437e260dc4b4da71b6692822dd46f: {r: 1, g: 0.06127636, b: 0, a: 1}
   m_BuildTextureStacks: []

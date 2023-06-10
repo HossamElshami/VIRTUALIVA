@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Core\Server.cs" />
     <Compile Include="Assets\Scripts\Backend Side\LoginScript.cs" />
     <Compile Include="Assets\Scripts\UI\HomePage.cs" />
+    <Compile Include="Assets\Shaders\Liquid\Wobble.cs" />
     <Compile Include="Assets\Scripts\Managers\Manager.cs" />
     <Compile Include="Assets\Scripts\Core\Tool_SO.cs" />
     <Compile Include="Assets\Scripts\Core\DragingSystem.cs" />
@@ -105,7 +106,6 @@
     <Compile Include="Assets\Data\Quests\IQuestable.cs" />
     <Compile Include="Assets\Scripts\Managers\AI_Manager.cs" />
     <Compile Include="Assets\Scripts\Core\TriggerBox.cs" />
-    <Compile Include="Assets\Shaders\Liquid\Wobble.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
