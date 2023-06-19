@@ -17,8 +17,8 @@ public class Tool : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (!collisionObject) return;
-
-        if(collision.gameObject == collisionObject)
+        if (!collision.gameObject.GetComponent<Tool>()) return;
+        if (collision.gameObject.GetComponent<Tool>().toolData.toolName == collisionObject.GetComponent<Tool>().toolData.toolName)
         {
             IsCollisionObject = true;
         }

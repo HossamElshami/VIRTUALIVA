@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6931471012299208178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6931471012299208077}
+  - component: {fileID: 6931471012299208076}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6931471012299208077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6931471012299208178}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6931471012299208076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6931471012299208178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b0c324e9c0a0448b34db754141dff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - clipName: Warning
+    clip: {fileID: 8300000, guid: 74d0d08523a4ea749b9b322168e6e644, type: 3}
+    volume: 1
+    pitch: 2.8
+    loop: 0
+    source: {fileID: 0}
+  - clipName: Error
+    clip: {fileID: 8300000, guid: 4244eb445e010a949838de9394c5e44f, type: 3}
+    volume: 0.5
+    pitch: 1.2
+    loop: 0
+    source: {fileID: 0}
+  - clipName: FootStep
+    clip: {fileID: 8300000, guid: 0454722548da6c54484e708da668cc1e, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: ButtonHover
+    clip: {fileID: 8300000, guid: 1aa3ac64ffdd53c45b606367b592f795, type: 3}
+    volume: 1
+    pitch: 2.5
+    loop: 0
+    source: {fileID: 0}
+  - clipName: ButtonClick
+    clip: {fileID: 8300000, guid: 6ca58f86f43f2224fbe740730f985247, type: 3}
+    volume: 1
+    pitch: 2.8
+    loop: 0
+    source: {fileID: 0}
+  - clipName: PickUp
+    clip: {fileID: 8300000, guid: 674dd77de4460594a8006199831c0d43, type: 3}
+    volume: 1
+    pitch: 2
+    loop: 0
+    source: {fileID: 0}

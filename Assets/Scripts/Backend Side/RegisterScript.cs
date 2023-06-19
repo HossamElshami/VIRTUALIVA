@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
-
 public class RegisterScript : MonoBehaviour
 {
     public Button signup;

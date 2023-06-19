@@ -121,19 +121,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1623406581982102144}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -8871454645904516158}
-        m_TargetAssemblyTypeName: InventoryCell, Assembly-CSharp
-        m_MethodName: makeItem
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 6799793524235367209, guid: 960e9f915698b7c49a9e387fe33202ff, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &-8871454645904516158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c8b01477a95fad4cb67851518a68c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 0}
   parent: {fileID: 0}
 --- !u!1 &1623406582367454024
 GameObject:

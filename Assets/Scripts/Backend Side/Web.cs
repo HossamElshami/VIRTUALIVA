@@ -1,8 +1,8 @@
 using UnityEngine;
+using Newtonsoft.Json;
 using System.Collections;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
-using Newtonsoft.Json;
 public class Web : MonoBehaviour
 {
     public IEnumerator Login(string email, string password)
@@ -14,16 +14,18 @@ public class Web : MonoBehaviour
         using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/virtualiva/auth/login.php", form))
         {
             yield return www.SendWebRequest();
+            if (www.isNetworkError || www.isHttpError)
+            {
+                MainManager.instance.showDialogBox("Cannot connect to the server, maybe the problem could be from the Internet.", MainManager.dialogType.Attention);
+            }
             if (www.downloadHandler.text != string.Empty && www.downloadHandler.text != null)
             {
                 string[] data = www.downloadHandler.text.Split('"');
 
-                if (www.isNetworkError || www.isHttpError)
-                    Debug.Log(www.error);
-                else if (data[data.Length - 2] != "Wrong email or password!")
+                if (data[data.Length - 2] != "Wrong email or password!")
                 {
-                    var xr = JsonConvert.DeserializeObject<user>(www.downloadHandler.text);
-                    Main.Instance.userdata = xr.data;
+                    var userdataClass = JsonConvert.DeserializeObject<user>(www.downloadHandler.text);
+                    Main.Instance.userdata = userdataClass.data;
                     SceneManager.LoadScene("MainMenu");
                 }
                 else

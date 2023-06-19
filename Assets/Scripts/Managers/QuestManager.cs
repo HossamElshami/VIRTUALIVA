@@ -6,11 +6,12 @@ public class QuestManager : MonoBehaviour
 {
     public bool haveQuest = false;
     public int totalGrade = 0;
-    public GameObject questPref;
+    public GameObject questPref, stepPref;
     public GameObject mainObject;
     public Quest ActiveQuest;
     Color correctColor = Color.green, wrongColor = Color.red;
     public List<Quest> quests;
+    public List<GameObject> questSteps;
     public static QuestManager instance;
     private void Awake()
     {
@@ -55,13 +56,17 @@ public class QuestManager : MonoBehaviour
         if (activeStep < questSteps)
             UI_Manager.instance.questPanel.transform.GetChild(0).transform.GetChild(activeStep).GetComponent<TMP_Text>().color = wrongColor;
     }
-    public void addQuestStepsToUI(int questSteps, Quest quest)
+    public void addQuestStepsToUI(Quest quest)
     {
-        for (int i = 0; i < questSteps; i++)
+        foreach (Transform child in UI_Manager.instance.questPanel.transform.GetChild(0).transform)
         {
-            GameObject q = Instantiate(questPref, UI_Manager.instance.questPanel.transform.GetChild(0).transform);
-            //q.GetComponent<TMP_Text>().text = quest._questSteps[i].ID + " - " + quest._questSteps[i].description;
-            //q.transform.parent = UI_Manager.instance.questPanel.transform;
+            GameObject.Destroy(child.gameObject);
+        }
+        for (int i = 0; i < quest.Steps.Count; i++)
+        {
+            GameObject q = Instantiate(stepPref, UI_Manager.instance.questPanel.transform.GetChild(0).transform);
+            q.GetComponent<TMP_Text>().text = (quest.Steps[i].StepID + 1) + " - " + quest.Steps[i].StepDescription;
+            questSteps.Add(q);
         }
     }
 }

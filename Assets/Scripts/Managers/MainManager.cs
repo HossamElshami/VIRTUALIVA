@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using TMPro;
 
 public class MainManager : MonoBehaviour
 {
@@ -14,7 +11,7 @@ public class MainManager : MonoBehaviour
     private List<User> users;
     public enum dialogType
     {
-        Error, Attention, Ask, Confirmation
+        Error, Attention, Ask, Confirmation, Loading
     }
     Scene currentScene;
 
@@ -74,6 +71,10 @@ public class MainManager : MonoBehaviour
         {
 
         }
+    }
+    public void ButtonOnHover()
+    {
+        AudioManager.instance.Play("ButtonHover");
     }
 }
 public class User

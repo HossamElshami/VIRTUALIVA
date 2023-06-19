@@ -1,37 +1,30 @@
-using System;
-using UnityEditor;
+using TMPro;
 using UnityEngine;
-//[Serializable]
 public class QuestStep : MonoBehaviour
 {
-    [HideInInspector]
-    public int StepID;
-    public int stepGrade;
+    public int StepID, stepGrade;
     public string StepName;
-    public enum QuestType { ColisionWithOtherObject, /*MixWithOtherObject,*/ OpenPanel, ClickButton, GoSomewhere, DragObject }
+    public enum QuestType { ColisionWithOtherObject, /*MixWithOtherObject,*/ OpenPanel, ClickButton, GoSomewhere, DragObject, ToolFromInventory }
     [TextArea]
     public string StepDescription;
     public bool _isFinished = false, _isActive = false;
     [Header("Type of step")]
     [Space(20)]
     public QuestType stepType;
-    [HideInInspector]
-    public Tool ColisionObject1;
-    [HideInInspector]
-    public GameObject ColisionObject2;
-    [HideInInspector]
-    public GameObject PanelToOpen;
-    [HideInInspector]
-    public KeyCode ButtonToClick;
-    [HideInInspector]
-    public GameObject triggerBox;
-    [HideInInspector]
-    public DragableItem objectToDrag;
+    [HideInInspector] public Tool ColisionObject1;
+    [HideInInspector] public GameObject ColisionObject2;
+    [HideInInspector] public GameObject PanelToOpen;
+    [HideInInspector] public Tool toolFromInventory;
+    [HideInInspector] public KeyCode ButtonToClick;
+    [HideInInspector] public GameObject triggerBox;
+    [HideInInspector] public DragableItem objectToDrag;
+    GameObject effect;
 
     void Update()
     {
         if (!_isActive) return;
-
+        if (QuestManager.instance.questSteps.Count > 0)
+            QuestManager.instance.questSteps[StepID].GetComponent<TMP_Text>().color = Color.green;
         switch (stepType)
         {
             case QuestType.ColisionWithOtherObject:
@@ -45,18 +38,29 @@ public class QuestStep : MonoBehaviour
                 break;
             case QuestType.GoSomewhere:
                 GoSomewhere();
+                if (effect == null)
+                    effect = Instantiate(LabManager.instance.locationEffect, triggerBox.transform);
+                if (_isFinished)
+                    Destroy(effect);
                 break;
             case QuestType.DragObject:
                 DraggingObject();
                 break;
+            case QuestType.ToolFromInventory:
+                ToolFromInventory();
+                break;
+        }
+        if (_isFinished)
+        {
+            transform.parent.GetComponent<Quest>().ActiveNextStep(StepID);
+            QuestManager.instance.questSteps[StepID].GetComponent<TMP_Text>().color = Color.red;
+            _isActive = false;
         }
     }
     public void CreateTriggerEvent()
     {
         GameObject box;
-        //spawn object
         box = new GameObject("BoxTrigger");
-        //Add Components
         box.transform.parent = transform;
         box.AddComponent<BoxCollider>().isTrigger = true;
         box.AddComponent<Rigidbody>().useGravity = false;
@@ -65,12 +69,9 @@ public class QuestStep : MonoBehaviour
     }
     void ColisionWithObject()
     {
-        //check if object is the second item
         if (!ColisionObject1 | !ColisionObject2) return;
 
         ColisionObject1.collisionObject = ColisionObject2;
-        //check if first item colision with second item
-        //make the step is finished
         _isFinished = ColisionObject1.IsCollisionObject;
     }
     void OpenPanel()
@@ -92,5 +93,11 @@ public class QuestStep : MonoBehaviour
     {
         if (!objectToDrag) return;
         _isFinished = objectToDrag.isDragging;
+    }
+    void ToolFromInventory()
+    {
+        if (!InventorySystem.instance.LastInstantiatedTool) return;
+        if (toolFromInventory.toolData.toolName == InventorySystem.instance.LastInstantiatedTool.toolData.toolName)
+            _isFinished = true;
     }
 }

@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class EditItemPage : MonoBehaviour
 {
     Tool tool;
@@ -19,7 +18,7 @@ public class EditItemPage : MonoBehaviour
         dragingSystem = LabManager.instance.character.GetComponent<DragingSystem>();
     }
     private void Update()
-    { 
+    {
         if (!mainObject) return;
 
         tool = mainObject.GetComponent<Tool>();
@@ -27,22 +26,24 @@ public class EditItemPage : MonoBehaviour
         itemOptions[1].SetActive(tool.toolData.Scaleable);
         itemOptions[2].SetActive(tool.toolData.Material);
         itemOptions[3].SetActive(tool.toolData.Options);
-        itemControls(); 
+        itemControls();
 
-        if(isRotating) Rotate();
-        if(isScaling) Scale();        
+        if (isRotating) Rotate();
+        if (isScaling) Scale();
     }
 
     public void Scale()
     {
-        if(InputManager.instance.inputDown(KeyCode.Period) &&
-             mainObject.transform.localScale.x < mainObject.GetComponent<Tool>().toolData.maxSize){
-                mainObject.transform.localScale *= 1.25f;
-            }
-            else if(InputManager.instance.inputDown(KeyCode.Comma) &&
-             mainObject.transform.localScale.x > mainObject.GetComponent<Tool>().toolData.minSize){
-                mainObject.transform.localScale *= 0.75f;
-            }
+        if (InputManager.instance.inputDown(KeyCode.Period) &&
+             mainObject.transform.localScale.x < mainObject.GetComponent<Tool>().toolData.maxSize)
+        {
+            mainObject.transform.localScale *= 1.25f;
+        }
+        else if (InputManager.instance.inputDown(KeyCode.Comma) &&
+         mainObject.transform.localScale.x > mainObject.GetComponent<Tool>().toolData.minSize)
+        {
+            mainObject.transform.localScale *= 0.75f;
+        }
     }
     public void Rotate()
     {
@@ -63,12 +64,12 @@ public class EditItemPage : MonoBehaviour
                 mainObject.transform.localScale = Vector3.one;
                 break;
             case "r":
-                if(!tool.toolData.Rotateable) return;
-                isRotating = !isRotating;                
+                if (!tool.toolData.Rotateable) return;
+                isRotating = !isRotating;
                 HideControls("Move mouse to rotate item, Click [R] to out");
                 break;
             case "t":
-                if(!tool.toolData.Scaleable) return;
+                if (!tool.toolData.Scaleable) return;
                 isScaling = !isScaling;
                 HideControls("Click [<] and [>] to scale item, Click [T] to out");
                 break;
@@ -78,7 +79,7 @@ public class EditItemPage : MonoBehaviour
     }
     void HideControls(string hint)
     {
-        isEditting = !isEditting;        
+        isEditting = !isEditting;
         string toolName = mainObject.GetComponent<Tool>().toolData.toolName;
         UI_Manager.instance.ItemNameText.text = hint;
         UI_Manager.instance.editItemOptions.SetActive(!isEditting);

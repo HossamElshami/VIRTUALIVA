@@ -11,11 +11,23 @@ public class Login : MonoBehaviour
     {
         if (EmailInput.text != string.Empty && PasswordInput.text != string.Empty)
         {
+            MainManager.instance.showDialogBox("Loading...", MainManager.dialogType.Loading);
             StartCoroutine(Main.Instance.Web.Login(EmailInput.text, PasswordInput.text));
         }
         else if (EmailInput.text == string.Empty || PasswordInput.text == string.Empty)
         {
             MainManager.instance.showDialogBox("Please enter your email and password and try again.", MainManager.dialogType.Attention);
+        }
+    }
+    void LateUpdate()
+    {
+        if (PasswordInput.isFocused)
+        {
+            if (InputManager.instance.inputDown(KeyCode.Return))
+            {
+                Debug.Log("Loging");
+                login();
+            }
         }
     }
 }

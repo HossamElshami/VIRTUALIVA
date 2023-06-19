@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LabManager : MonoBehaviour
-{    
+{
     public GameObject character;
     public bool editingItem = false;
-
+    public GameObject locationEffect;
     public static LabManager instance;
     private void Awake()
     {

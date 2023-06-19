@@ -16,7 +16,7 @@ MonoBehaviour:
   toolDescription: Liqueds can put in it
   toolCategory: vessel
   toolVersion: 1.0.0
-  toolIcon: {fileID: 0}
+  toolIcon: {fileID: 21300000, guid: 2756ce6c57de6d844871b17c4a8c0a6c, type: 3}
   minSize: 0.5
   maxSize: 1.5
   Scaleable: 1

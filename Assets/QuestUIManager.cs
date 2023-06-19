@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class QuestUIManager : MonoBehaviour
 {
     public Button activeQuestBtn;
-    public Transform QuestsContainer, QuestStepsContainer;
+    public Transform QuestsContainer, QuestStepsContainer, ActiveQuestStepsContainer;
     public GameObject QuestCellPrefab, QuestStepCellPrefab;
     [SerializeField] QuestManager QM;
     public List<Quest> questsButtons;
@@ -45,5 +45,6 @@ public class QuestUIManager : MonoBehaviour
         QuestManager.instance.ActiveQuest = selectedQuest;
         activeQuestBtn.interactable = QuestManager.instance.ActiveQuest == selectedQuest ? false : true;
         activeQuestBtn.GetComponentInChildren<TMP_Text>().text = QuestManager.instance.ActiveQuest == selectedQuest ? "Already Selected" : "Select experience";
+        QuestManager.instance.addQuestStepsToUI(selectedQuest);
     }
 }

@@ -1,27 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-
-public class SaveGameManager : MonoBehaviour
+public class SaveManager : MonoBehaviour
 {
-    private static SaveGameManager instance;
-
-    public List<SaveableObject> SaveableObjects{ get; private set; }
-
-    public static SaveGameManager Instance {
+    private static SaveManager instance;
+    public List<SaveableObject> SaveableObjects { get; private set; }
+    public static SaveManager Instance
+    {
         get
         {
-            if (instance == null) instance = FindObjectOfType<SaveGameManager>();
+            if (instance == null) instance = FindObjectOfType<SaveManager>();
             return instance;
-        } 
+        }
     }
-
     private void Awake()
     {
         SaveableObjects = new List<SaveableObject>();
     }
-
     public void Save()
     {
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().ToString(), SaveableObjects.Count);
@@ -30,17 +25,15 @@ public class SaveGameManager : MonoBehaviour
             SaveableObjects[i].Save(i);
         }
     }
-
     public void Load()
     {
         foreach (SaveableObject obj in SaveableObjects)
         {
-            if(obj != null)
+            if (obj != null)
             {
                 Destroy(obj.gameObject);
             }
         }
-
         SaveableObjects.Clear();
 
         int objectCount = PlayerPrefs.GetInt(SceneManager.GetActiveScene().ToString());
@@ -53,26 +46,16 @@ public class SaveGameManager : MonoBehaviour
     }
     public Vector3 StringToVector(string value)
     {
-        //(1, 2, 3)
-        value = value.Trim(new char[] { '(',')'});
-        //1, 2, 3
-        value = value.Replace(" ", "");
-        //1,2,3
-        string[] pos = value.Split(',');
-        //[0]=1,[1]=2,[2]=3
-
-        return new Vector3(float.Parse(pos[0]), float.Parse(pos[1]), float.Parse(pos[2]));
+        value = value.Trim(new char[] { '(', ')' });  //(1, 2, 3)        
+        value = value.Replace(" ", "");  //1, 2, 3
+        string[] pos = value.Split(',');  //1,2,3
+        return new Vector3(float.Parse(pos[0]), float.Parse(pos[1]), float.Parse(pos[2]));  //[0]=1,[1]=2,[2]=3
     }
     public Quaternion StringToQuaternion(string value)
     {
-        //(1, 2, 3)
-        value = value.Trim(new char[] { '(', ')' });
-        //1, 2, 3
-        value = value.Replace(" ", "");
-        //1,2,3
-        string[] pos = value.Split(',');
-        //[0]=1,[1]=2,[2]=3
-
-        return new Quaternion(float.Parse(pos[0]), float.Parse(pos[1]), float.Parse(pos[2]), float.Parse(pos[3]));
+        value = value.Trim(new char[] { '(', ')' });  //(1, 2, 3)
+        value = value.Replace(" ", "");  //1, 2, 3
+        string[] pos = value.Split(',');  //1,2,3        
+        return new Quaternion(float.Parse(pos[0]), float.Parse(pos[1]), float.Parse(pos[2]), float.Parse(pos[3]));  //[0]=1,[1]=2,[2]=3
     }
 }

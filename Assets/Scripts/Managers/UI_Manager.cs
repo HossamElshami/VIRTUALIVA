@@ -5,24 +5,18 @@ using System.Collections.Generic;
 public class UI_Manager : MonoBehaviour
 {
     [Header("Panels")]
-    public Panel menu;
-    public Panel questPanel;
-    public Panel inventoryPanel;
-    public GameObject botPanel;
-    public GameObject optionPanel;
-    public GameObject editItemOptions;
     public List<Panel> panels;
+    public Panel menu, questPanel, inventoryPanel;
+    public GameObject botPanel, optionPanel, editItemOptions;
     [Header("Text")]
-    public TMP_Text botText;
-    public TMP_Text ItemNameText;
+    public TMP_Text botText, ItemNameText;
     public GameObject ItemNameContainer;
     public bool panelOpen { get; private set; }
+    public bool showMessageHint = false;
     GameObject openedPanel;
     [Header("Menu")]
-    public TMP_Text MenuTitle;
-    public TMP_Text MenuDescription;
+    public TMP_Text MenuTitle, MenuDescription;
     public MenuButtonInfoSPO defaultData;
-
     InputManager inputManager;
     EditItemPage editItemPage;
     Tool draggingObjectTool;
@@ -33,7 +27,7 @@ public class UI_Manager : MonoBehaviour
         if (instance == null)
             instance = this;
         else
-            Destroy(gameObject);        
+            Destroy(gameObject);
     }
     private void Start()
     {
@@ -45,37 +39,31 @@ public class UI_Manager : MonoBehaviour
     }
     private void Update()
     {
-        if(editItemPage.mainObject) draggingObjectTool = editItemPage.mainObject.GetComponent<Tool>();
-        if (!panelOpen && !editItemPage.isEditting) 
+        if (editItemPage.mainObject) draggingObjectTool = editItemPage.mainObject.GetComponent<Tool>();
+        if (!panelOpen && !editItemPage.isEditting)
             VisibleCursor(false);
 
         if (inputManager.inputDown(KeyCode.Escape) && panelOpen)
             closePanels();
-        else if(inputManager.inputDown(KeyCode.Escape)&& !menu.gameObject.activeInHierarchy)
+        else if (inputManager.inputDown(KeyCode.Escape) && !menu.gameObject.activeInHierarchy)
             openPanel(menu);
 
         if (DragingSystem.instance.isDragging && inputManager.inputDown(KeyCode.E) && !editItemPage.isEditting)
             optionPanel.SetActive(!optionPanel.activeInHierarchy);
-        else if(!DragingSystem.instance.isDragging)
+        else if (!DragingSystem.instance.isDragging)
             optionPanel.SetActive(false);
 
-        if (inputManager.inputDown(KeyCode.Q) && !menu.gameObject.activeInHierarchy && !inventoryPanel.gameObject.activeInHierarchy && !DragingSystem.instance.isDragging)
-        {
-            closePanels();
-            openPanel(inventoryPanel);
-        }
-        else if (inputManager.inputDown(KeyCode.Q) && !menu.gameObject.activeInHierarchy && inventoryPanel.gameObject.activeInHierarchy) closePanels();
-
-        if(editItemOptions.activeInHierarchy && 
+        if (editItemOptions.activeInHierarchy &&
         (inputManager.inputDown(KeyCode.T) && draggingObjectTool.toolData.Scaleable |
-         inputManager.inputDown(KeyCode.R) && draggingObjectTool.toolData.Rotateable | 
-         inputManager.inputDown(KeyCode.U) && draggingObjectTool.toolData.Options | 
+         inputManager.inputDown(KeyCode.R) && draggingObjectTool.toolData.Rotateable |
+         inputManager.inputDown(KeyCode.U) && draggingObjectTool.toolData.Options |
          inputManager.inputDown(KeyCode.Y)) && draggingObjectTool.toolData.Material)
         {
             itemOptions(inputManager.GetButton());
         }
     }
-    void itemOptions(string msg){
+    void itemOptions(string msg)
+    {
         editItemOptions.SetActive(false);
         botPrint(msg);
     }
@@ -83,9 +71,33 @@ public class UI_Manager : MonoBehaviour
     {
         botText.gameObject.SetActive(true);
         botText.text = text;
-        closePanels();
         botPanel.SetActive(true);
         openedPanel = botPanel;
+    }
+    public void ShowHint(string text)
+    {
+        if (!showMessageHint)
+        {
+            HideHint();
+            return;
+        }
+        ItemNameContainer.SetActive(true);
+        ItemNameText.text = text;
+    }
+    public void ShowHint(InventoryCell cell)
+    {
+        if (!showMessageHint)
+        {
+            HideHint();
+            return;
+        }
+        ItemNameContainer.SetActive(true);
+        ItemNameText.text = cell.itemPrefab.GetComponent<Tool>().toolData.toolName;
+    }
+    public void HideHint()
+    {
+        ItemNameContainer.SetActive(false);
+        ItemNameText.text = "";
     }
     void closePanelDelay()
     {
@@ -95,6 +107,7 @@ public class UI_Manager : MonoBehaviour
     }
     void AddQuestToPanel()
     {
+        closePanels();
         openPanel(questPanel);
     }
     public void openPanel(Panel panel)

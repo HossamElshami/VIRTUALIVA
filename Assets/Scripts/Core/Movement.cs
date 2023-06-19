@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         //updateMouseVisibale();
-        if (EditItemPage.instance.isEditting) return;
+        if (EditItemPage.instance.isEditting || Inventory.instance.inventoryVisible) return;
 
         moveX = InputManager.instance.HValue;
         moveY = InputManager.instance.VValue;
@@ -35,6 +35,8 @@ public class Movement : MonoBehaviour
         Vector3 dir = new Vector3(horizontal, 0, vertical) * Speed * Time.fixedDeltaTime;
         dir = transform.TransformDirection(dir);
         transform.position += dir;
+        GetComponent<AudioSource>().enabled = horizontal != 0 || vertical != 0 ? true : false;
+
     }
     void RotateCamera(float mouseX, float mouseY)
     {

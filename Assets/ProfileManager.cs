@@ -13,7 +13,7 @@ public class ProfileManager : MonoBehaviour
     }
     void Start()
     {
-        SetProfileData(Main.Instance.userdata);
+        if (Main.Instance) SetProfileData(Main.Instance.userdata);
     }
     public void SetProfileData(userData data)
     {

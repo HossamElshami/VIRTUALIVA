@@ -1,18 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-public class InventoryCell : MonoBehaviour
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+public class InventoryCell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    public GameObject itemPrefab;
     public Transform parent;
     private void Start()
     {
-        parent = GameObject.FindGameObjectWithTag("ItemPoint").transform;
+        GetComponent<Button>().onClick.AddListener(delegate { makeItem(itemPrefab); });
     }
     public void makeItem(GameObject item)
     {
-        GameObject go = Instantiate(item, parent.position, parent.rotation);
+        GameObject go = Instantiate(item, GetFreeSpawnPoint().position, GetFreeSpawnPoint().rotation);
         UI_Manager.instance.openPanel(UI_Manager.instance.inventoryPanel);
         QuestManager.instance.mainObject = go;
+        InventorySystem.instance.LastInstantiatedTool = go.GetComponent<Tool>();
+    }
+    Transform GetFreeSpawnPoint()
+    {
+        foreach (ItemSpawnPoint p in InventorySystem.instance.spawnPoints)
+            if (p.isFree) return p.transform;
+        return null;
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        UI_Manager.instance.ShowHint(this);
+        InventorySystem.instance.showCellName = true;
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        UI_Manager.instance.HideHint(); ;
+        InventorySystem.instance.showCellName = false;
     }
 }

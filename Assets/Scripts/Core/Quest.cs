@@ -7,15 +7,16 @@ public class Quest : MonoBehaviour
 {
     [HideInInspector]
     public bool wantToDelete = false;
-    public List<QuestStep> Steps;
+    public List<QuestStep> Steps = new List<QuestStep>();
     public int totalGrade, questSteps, activeStep, questIndex;
 
     public string questName;
+    [TextArea]
     public string questDescription;
     public List<Tool> questTools;
     public bool _isFinished = false, _isActive = false;
-    GameObject newQuest;
     QuestUIManager questUIManager;
+    public QuestManager QM;
     public bool selected = false;
     [SerializeField] Color normalColor, selectedColor;
     Button btn;
@@ -28,16 +29,21 @@ public class Quest : MonoBehaviour
             GetComponent<Button>().onClick.AddListener(delegate { showSteps(questIndex); });
         }
     }
-    public virtual void check() { }
+    public void ActiveNextStep(int StepID)
+    {
+        Steps[StepID + 1]._isActive = true;
+    }
     public void createNewStep()
     {
-        //spawn object
+        GameObject newQuest;
         newQuest = new GameObject("Step " + (Steps.Count + 1));
-        //newQuest.name = "Step " + (Steps.Count + 1);
-        //Add Components
         newQuest.transform.parent = this.transform;
         newQuest.AddComponent<QuestStep>();
+        if (Steps.Count < 1)
+            newQuest.GetComponent<QuestStep>()._isActive = true;
+        QM = transform.parent.transform.parent.GetComponent<QuestManager>();
         Steps.Add(newQuest.GetComponent<QuestStep>());
+        newQuest.GetComponent<QuestStep>().StepID = Steps.Count - 1;
     }
     public void clearSteps()
     {
@@ -82,6 +88,6 @@ public class Quest : MonoBehaviour
         btn.colors = cb;
         questUIManager.selectedQuest = this;
         questUIManager.activeQuestBtn.interactable = QuestManager.instance.ActiveQuest == this ? false : true;
-        questUIManager.activeQuestBtn.GetComponentInChildren<TMP_Text>().text = QuestManager.instance.ActiveQuest == this ? "Already Selected" : "Select experience";
+        questUIManager.activeQuestBtn.GetComponentInChildren<TMP_Text>().text = QuestManager.instance.ActiveQuest == this ? "Selected" : "Select experience";
     }
 }
