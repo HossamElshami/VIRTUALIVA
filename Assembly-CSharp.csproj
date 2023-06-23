@@ -43,6 +43,7 @@
      <Compile Include="Assets\Scripts\Backend Side\LoginScript.cs" />
      <Compile Include="Assets\Scripts\UI\HomePage.cs" />
      <Compile Include="Assets\InputFieldManager.cs" />
+     <Compile Include="Assets\ItemSpawnPoint.cs" />
      <Compile Include="Assets\Shaders\Liquid\Wobble.cs" />
      <Compile Include="Assets\Scripts\Managers\Manager.cs" />
      <Compile Include="Assets\Sound.cs" />
@@ -70,6 +71,7 @@
      <Compile Include="Assets\Scripts\UI\EditItemPage.cs" />
      <Compile Include="Assets\Scripts\Core\QuestSystem.cs" />
      <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
+     <Compile Include="Assets\cell.cs" />
      <Compile Include="Assets\Scripts\PendulumQuest.cs" />
      <Compile Include="Assets\Scripts\Backend Side\Web.cs" />
      <Compile Include="Assets\Scripts\Desk_SO.cs" />
@@ -79,6 +81,7 @@
      <Compile Include="Assets\Scripts\Desk.cs" />
      <Compile Include="Assets\Data\AI Information\MenuButtonInfoSPO.cs" />
      <Compile Include="Assets\Scripts\Backend Side\RegisterScript.cs" />
+     <Compile Include="Assets\Inventory.cs" />
      <Compile Include="Assets\Scripts\Managers\SaveManager.cs" />
      <Compile Include="Assets\Scripts\Managers\QuestManager.cs" />
      <Compile Include="Assets\Scripts\Backend Side\Register.cs" />
@@ -88,12 +91,13 @@
      <Compile Include="Assets\Scripts\Item.cs" />
      <Compile Include="Assets\Scripts\UI\Panel.cs" />
      <Compile Include="Assets\Data\Quests\IQuestable.cs" />
+     <Compile Include="Assets\InventorySystem.cs" />
      <Compile Include="Assets\Scripts\Managers\AI_Manager.cs" />
      <Compile Include="Assets\Scripts\Core\TriggerBox.cs" />
-     <Compile Include="Assets\Inventory.cs" />
-     <Compile Include="Assets\InventorySystem.cs" />
-     <Compile Include="Assets\cell.cs" />
-     <Compile Include="Assets\ItemSpawnPoint.cs" />
+     <Compile Include="Assets\LiquidMixer.cs" />
+     <Compile Include="Assets\MixerPoint.cs" />
+     <Compile Include="Assets\Data\chemicals\Chemicals.cs" />
+     <Compile Include="Assets\Scripts\Chemical.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

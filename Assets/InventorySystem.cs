@@ -11,7 +11,7 @@ public class InventorySystem : MonoBehaviour
     [SerializeField] GameObject cellPrefab;
     public ItemSpawnPoint[] spawnPoints;
     [SerializeField] GameObject cellsContainer;
-    public Tool LastInstantiatedTool;
+    public GameObject LastInstantiatedTool;
     public bool showCellName = false;
     public static InventorySystem instance;
     void Awake()

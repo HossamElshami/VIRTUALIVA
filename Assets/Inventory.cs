@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
     }
     void Update()
     {
+        if (DragingSystem.instance.isDragging) return;
         if (inRange)
         {
             if (InputManager.instance.inputDown(KeyCode.Q))

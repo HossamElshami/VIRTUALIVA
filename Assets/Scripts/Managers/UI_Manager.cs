@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class UI_Manager : MonoBehaviour
@@ -8,18 +9,28 @@ public class UI_Manager : MonoBehaviour
     public List<Panel> panels;
     public Panel menu, questPanel, inventoryPanel;
     public GameObject botPanel, optionPanel, editItemOptions;
-    [Header("Text")]
-    public TMP_Text botText, ItemNameText;
-    public GameObject ItemNameContainer;
-    public bool panelOpen { get; private set; }
-    public bool showMessageHint = false;
     GameObject openedPanel;
+    [Header("Text")]
+    public TMP_Text botText;
+    public TMP_Text ItemNameText;
+    public GameObject ItemNameContainer;
+    [Header("Boolean")]
+    public bool showMessageHint = false;
+    public bool panelOpen { get; private set; }
     [Header("Menu")]
-    public TMP_Text MenuTitle, MenuDescription;
+    public TMP_Text MenuTitle;
+    public TMP_Text MenuDescription;
     public MenuButtonInfoSPO defaultData;
     InputManager inputManager;
     EditItemPage editItemPage;
     Tool draggingObjectTool;
+    [Header("LiquidMixer")]
+    public Image liquidMixerRightSide;
+    public TMP_Text liquidMixerRightSideText;
+    public Image liquidMixerLeftSide;
+    public TMP_Text liquidMixerLeftSideText;
+    public Image liquidMixerOutput;
+    public TMP_Text liquidMixerOutputText;
 
     public static UI_Manager instance;
     private void Awake()
@@ -73,6 +84,18 @@ public class UI_Manager : MonoBehaviour
         botText.text = text;
         botPanel.SetActive(true);
         openedPanel = botPanel;
+    }
+    public void botPrint(string text, float timer)
+    {
+        botText.gameObject.SetActive(true);
+        botText.text = text;
+        botPanel.SetActive(true);
+        openedPanel = botPanel;
+        Invoke("HideBotText", timer);
+    }
+    public void HideBotText()
+    {
+        botPanel.SetActive(false);
     }
     public void ShowHint(string text)
     {

@@ -37,7 +37,13 @@ public class CustomQuestStepEditor : Editor
                 step.objectToDrag = createToolField("Object", step.objectToDrag);
                 break;
             case QuestStep.QuestType.ToolFromInventory:
-                step.toolFromInventory = createToolField("Object", step.toolFromInventory);
+                step.toolFromInventory = createToolField("Tool", step.toolFromInventory);
+                break;
+            case QuestStep.QuestType.ChemicalFromInventory:
+                step.chemicalFromInventory = createChemicalField("Chemical", step.chemicalFromInventory);
+                break;
+            case QuestStep.QuestType.MixLiquid:
+                step.WantedLiquid = createGOField("WantedLiquid", step.WantedLiquid);
                 break;
         }
     }
@@ -52,6 +58,13 @@ public class CustomQuestStepEditor : Editor
     {
         MakeField(label);
         Tool input = (Tool)EditorGUILayout.ObjectField(obj, typeof(Tool), allowSceneObjects: true);
+        GUILayout.EndHorizontal();
+        return input;
+    }
+    Chemical createChemicalField(string label, Chemical obj)
+    {
+        MakeField(label);
+        Chemical input = (Chemical)EditorGUILayout.ObjectField(obj, typeof(Chemical), allowSceneObjects: true);
         GUILayout.EndHorizontal();
         return input;
     }

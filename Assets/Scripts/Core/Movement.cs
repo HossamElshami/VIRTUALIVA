@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         //updateMouseVisibale();
-        if (EditItemPage.instance.isEditting || Inventory.instance.inventoryVisible) return;
+        if (EditItemPage.instance.isEditting || Inventory.instance.inventoryVisible || UI_Manager.instance.menu.gameObject.activeInHierarchy) return;
 
         moveX = InputManager.instance.HValue;
         moveY = InputManager.instance.VValue;

@@ -51,9 +51,9 @@ public class DragingSystem : MonoBehaviour
                 DragObject();
             }
             else
-                if (InputManager.instance.LeftMouseDown) UI.botPrint("Object too far to drag it, please come closer");
+                if (InputManager.instance.LeftMouseDown) UI.botPrint("Object too far to drag it, please come closer", 3f);
         }
-        else if (!Inventory.instance.inRange && !selectedObject)
+        else if (!Inventory.instance.inRange && !LiquidMixer.instance.inRange && !selectedObject)
         {
             //UI.botPanel.SetActive(false);
             UI.showMessageHint = false;

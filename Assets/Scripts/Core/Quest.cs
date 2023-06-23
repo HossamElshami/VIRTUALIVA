@@ -8,7 +8,7 @@ public class Quest : MonoBehaviour
     [HideInInspector]
     public bool wantToDelete = false;
     public List<QuestStep> Steps = new List<QuestStep>();
-    public int totalGrade, questSteps, activeStep, questIndex;
+    public int totalGrade, questSteps, activeStep, questIndex, questGrade;
 
     public string questName;
     [TextArea]
@@ -25,13 +25,18 @@ public class Quest : MonoBehaviour
     {
         questUIManager = QuestUIManager.instance;
         if (GetComponent<Button>())
-        {
             GetComponent<Button>().onClick.AddListener(delegate { showSteps(questIndex); });
-        }
+
+        for (int i = 0; i < Steps.Count; i++)
+            questGrade += Steps[i].stepGrade;
     }
-    public void ActiveNextStep(int StepID)
+    public void ActiveNextStep(int StepID, int grade)
     {
-        Steps[StepID + 1]._isActive = true;
+        totalGrade += grade;
+        if (Steps.Count > StepID + 1)
+            Steps[StepID + 1]._isActive = true;
+        else
+            UI_Manager.instance.botPrint("The experiment \"" + questName + "\" has finished! Your grade: " + questGrade + " / " + totalGrade, 5f);
     }
     public void createNewStep()
     {

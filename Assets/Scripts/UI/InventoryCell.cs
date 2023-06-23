@@ -14,7 +14,7 @@ public class InventoryCell : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         GameObject go = Instantiate(item, GetFreeSpawnPoint().position, GetFreeSpawnPoint().rotation);
         UI_Manager.instance.openPanel(UI_Manager.instance.inventoryPanel);
         QuestManager.instance.mainObject = go;
-        InventorySystem.instance.LastInstantiatedTool = go.GetComponent<Tool>();
+        InventorySystem.instance.LastInstantiatedTool = go;
     }
     Transform GetFreeSpawnPoint()
     {

@@ -66,6 +66,7 @@ public class QuestManager : MonoBehaviour
         {
             GameObject q = Instantiate(stepPref, UI_Manager.instance.questPanel.transform.GetChild(0).transform);
             q.GetComponent<TMP_Text>().text = (quest.Steps[i].StepID + 1) + " - " + quest.Steps[i].StepDescription;
+            quest._isActive = true;
             questSteps.Add(q);
         }
     }
