@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24000722dd6f8d04691770680c0b118f, type: 3}
   m_Name: Vessel4_Data
   m_EditorClassIdentifier: 
-  toolName: Vessel3
+  toolName: Vessel4
   toolDescription: Liqueds can put in it
   toolCategory: vessel
   toolVersion: 1.0.0
-  toolIcon: {fileID: 0}
+  toolIcon: {fileID: 21300000, guid: 3f5738e2635f190439e0f04709fe3d9e, type: 3}
   minSize: 0.5
-  maxSize: 2
+  maxSize: 1.5
   Scaleable: 1
   Moveable: 1
   Rotateable: 1
   Skinable: 0
+  Options: 0
+  Material: 0

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
@@ -38,6 +36,9 @@ public class CustomQuestStepEditor : Editor
             case QuestStep.QuestType.DragObject:
                 step.objectToDrag = createToolField("Object", step.objectToDrag);
                 break;
+            case QuestStep.QuestType.ToolFromInventory:
+                step.toolFromInventory = createToolField("Object", step.toolFromInventory);
+                break;
         }
     }
     GameObject createGOField(string label, GameObject obj)
@@ -62,10 +63,10 @@ public class CustomQuestStepEditor : Editor
         return input;
     }
     void MakeField(string label)
-    {                          
+    {
         GUILayout.BeginHorizontal();
         GUILayout.Label(label);
         GUILayout.FlexibleSpace();
     }
-    
+
 }

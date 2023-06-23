@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
@@ -36,6 +34,8 @@ public class MakeToolWindow : EditorWindow
         _tool.Moveable = createCheckBox("Moveable", _tool.Moveable);
         _tool.Rotateable = createCheckBox("Rotateable", _tool.Rotateable);
         _tool.Skinable = createCheckBox("Skinable", _tool.Skinable);
+        _tool.Options = createCheckBox("Options", _tool.Options);
+        _tool.Material = createCheckBox("Material", _tool.Material);
 
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("Create"))
@@ -64,6 +64,8 @@ public class MakeToolWindow : EditorWindow
         tool.Rotateable = t.Rotateable;
         tool.Moveable = t.Moveable;
         tool.Skinable = t.Skinable;
+        tool.Options = t.Options;
+        tool.Material = t.Material;
         tool.minSize = t.minSize;
         tool.maxSize = t.maxSize;
         
@@ -122,5 +124,5 @@ public class NewTool
     public Sprite toolIcon;
 
     public float minSize, maxSize;
-    public bool Scaleable, Moveable, Rotateable, Skinable;
+    public bool Scaleable, Moveable, Rotateable, Skinable, Options, Material;
 }
