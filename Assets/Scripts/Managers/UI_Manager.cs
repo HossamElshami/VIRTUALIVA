@@ -7,7 +7,7 @@ public class UI_Manager : MonoBehaviour
 {
     [Header("Panels")]
     public List<Panel> panels;
-    public Panel menu, questPanel, inventoryPanel;
+    public Panel menu, questPanel, inventoryPanel, chatBotPanel;
     public GameObject botPanel, optionPanel, editItemOptions;
     GameObject openedPanel;
     [Header("Text")]
@@ -72,6 +72,10 @@ public class UI_Manager : MonoBehaviour
         {
             itemOptions(inputManager.GetButton());
         }
+        if (inputManager.inputDown(KeyCode.Return) && !chatBotPanel.gameObject.activeInHierarchy)
+            openPanel(chatBotPanel);
+        else if (inputManager.inputDown(KeyCode.Return) && chatBotPanel.gameObject.activeInHierarchy)
+            closePanels();
     }
     void itemOptions(string msg)
     {

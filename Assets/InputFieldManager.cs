@@ -11,8 +11,8 @@ public class InputFieldManager : MonoBehaviour
     [SerializeField] bool OnFocus = false;
     void Start()
     {
-        underLine = transform.FindChild("UnderLine").GetComponent<Image>();
-        text = transform.GetChild(0).FindChild("Text").GetComponent<TMP_Text>();
+        underLine = transform.Find("UnderLine").GetComponent<Image>();
+        text = transform.GetChild(0).Find("Text").GetComponent<TMP_Text>();
         text.text = "";
     }
     void LateUpdate()
