@@ -2,9 +2,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.InputSystem;
 
 public class UI_Manager : MonoBehaviour
 {
+    
+
+
     [Header("Panels")]
     public List<Panel> panels;
     public Panel menu, questPanel, inventoryPanel, chatBotPanel;
@@ -42,6 +47,7 @@ public class UI_Manager : MonoBehaviour
     }
     private void Start()
     {
+        
         inputManager = InputManager.instance;
         editItemPage = EditItemPage.instance;
 
@@ -50,7 +56,7 @@ public class UI_Manager : MonoBehaviour
     }
     private void Update()
     {
-        if (editItemPage.mainObject) draggingObjectTool = editItemPage.mainObject.GetComponent<Tool>();
+        //if (editItemPage.mainObject) draggingObjectTool = editItemPage.mainObject.GetComponent<Tool>();
         if (!panelOpen && !editItemPage.isEditting)
             VisibleCursor(false);
 
@@ -59,10 +65,24 @@ public class UI_Manager : MonoBehaviour
         else if (inputManager.inputDown(KeyCode.Escape) && !menu.gameObject.activeInHierarchy)
             openPanel(menu);
 
-        if (DragingSystem.instance.isDragging && inputManager.inputDown(KeyCode.E) && !editItemPage.isEditting)
-            optionPanel.SetActive(!optionPanel.activeInHierarchy);
-        else if (!DragingSystem.instance.isDragging)
-            optionPanel.SetActive(false);
+        
+      
+
+
+
+
+        
+
+
+
+
+        if (DragingSystem.instance)
+        {
+            if (DragingSystem.instance.isDragging && inputManager.inputDown(KeyCode.E) && !editItemPage.isEditting)
+                optionPanel.SetActive(!optionPanel.activeInHierarchy);
+            else if (!DragingSystem.instance.isDragging)
+                optionPanel.SetActive(false);
+        }
 
         if (editItemOptions.activeInHierarchy &&
         (inputManager.inputDown(KeyCode.T) && draggingObjectTool.toolData.Scaleable |

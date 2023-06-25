@@ -71,6 +71,7 @@
     <Compile Include="Assets\InputFieldManager.cs" />
     <Compile Include="Assets\ItemSpawnPoint.cs" />
     <Compile Include="Assets\ThirdParties\OkGoDoIt\OpenAI_API\Embedding\EmbeddingResult.cs" />
+    <Compile Include="Assets\VR\DynamicMoveProvider.cs" />
     <Compile Include="Assets\Shaders\Liquid\Wobble.cs" />
     <Compile Include="Assets\ThirdParties\OkGoDoIt\OpenAI_API\ApiResultBase.cs" />
     <Compile Include="Assets\Scripts\Managers\Manager.cs" />
@@ -157,7 +158,7 @@
     <Compile Include="Assets\ThirdParties\OkGoDoIt\OpenAI_API\Completions\ICompletionEndpoint.cs" />
     <Compile Include="Assets\Scripts\Core\TriggerBox.cs" />
     <Compile Include="Assets\ThirdParties\OkGoDoIt\OpenAI_API\Model\ModelsEndpoint.cs" />
-    <Compile Include="Assets\VR\DynamicMoveProvider.cs" />
+    <Compile Include="Assets\MenuXrManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -950,6 +951,14 @@
     <ProjectReference Include="Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj">
       <Project>{C44C97B2-D036-69A6-02F4-0187F89F60EC}</Project>
       <Name>Unity.XR.Interaction.Toolkit.Samples.StarterAssets</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj">
+      <Project>{0269AC05-57A1-1D53-C430-CB0F63219C16}</Project>
+      <Name>Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj">
+      <Project>{4CE96BF4-34B0-71CB-D7A7-FC1600CA2051}</Project>
+      <Name>Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

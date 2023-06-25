@@ -16,7 +16,7 @@ public class LabManager : MonoBehaviour
     }
     private void Start()
     {
-        character = FindObjectOfType<Movement>().gameObject;
+        //character = FindObjectOfType<Movement>().gameObject;
     }
     public void mainMenu()
     {

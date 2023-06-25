@@ -21,7 +21,10 @@ public class LiquidMixer : MonoBehaviour
 
     void Update()
     {
-        if (DragingSystem.instance.isDragging) return;
+        if (DragingSystem.instance)
+        {
+            if (DragingSystem.instance.isDragging) return;
+        }
         if (inRange)
         {
             if (InputManager.instance.inputDown(KeyCode.Q))
