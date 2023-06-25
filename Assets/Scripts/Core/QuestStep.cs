@@ -32,7 +32,7 @@ public class QuestStep : MonoBehaviour
         if (!quest._isActive || quest._isFinished) return;
         if (!_isActive) return;
         if (QuestManager.instance.questSteps.Count > 0)
-            QuestManager.instance.questSteps[StepID].GetComponent<TMP_Text>().color = Color.green;
+            QuestManager.instance.questSteps[StepID].GetComponent<TMP_Text>().color = QuestManager.instance.ActiveStepColor;
         switch (stepType)
         {
             case QuestType.ColisionWithOtherObject:
@@ -69,7 +69,7 @@ public class QuestStep : MonoBehaviour
             if (transform.parent.GetComponent<Quest>().Steps.Count > StepID)
             {
                 transform.parent.GetComponent<Quest>().ActiveNextStep(StepID, stepGrade);
-                QuestManager.instance.questSteps[StepID].GetComponent<TMP_Text>().color = Color.red;
+                QuestManager.instance.questSteps[StepID].GetComponent<TMP_Text>().color = QuestManager.instance.DoneStepColor;
                 _isActive = false;
             }
         }

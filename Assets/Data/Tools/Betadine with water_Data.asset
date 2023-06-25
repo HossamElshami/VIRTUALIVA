@@ -16,7 +16,7 @@ MonoBehaviour:
   toolDescription: Tube of Betadine with water
   toolCategory: Liquid
   toolVersion: 1.0.0
-  toolIcon: {fileID: 0}
+  toolIcon: {fileID: 21300000, guid: 6e5bcbc17dbac98418aee5e41e9a06e3, type: 3}
   minSize: 0
   maxSize: 0
   Scaleable: 0

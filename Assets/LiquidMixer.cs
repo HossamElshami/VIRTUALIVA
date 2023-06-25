@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class LiquidMixer : MonoBehaviour
 {
+    [SerializeField] ParticleSystem spawnEffect;
     public GameObject firstLiquid, secondLiquid;
     [SerializeField] MixerPoint point1, point2;
     public bool firstLiquidFill = false, secondLiquidFill = false;
@@ -49,6 +50,7 @@ public class LiquidMixer : MonoBehaviour
         if (!GetTheMixerChemical(firstLiquid, secondLiquid)) return;
 
         outputLiquid = Instantiate(GetTheMixerChemical(firstLiquid, secondLiquid), spawnPoint.position, spawnPoint.rotation);
+        spawnEffect.Play();
         resetLiquid();
     }
     GameObject GetTheMixerChemical(GameObject c1, GameObject c2)

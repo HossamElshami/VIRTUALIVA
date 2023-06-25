@@ -4,7 +4,7 @@ public class Movement : MonoBehaviour
 {
     private new GameObject camera;
 
-    private float mouseSensitivity = 500f;
+    private float mouseSensitivity = 300f;
     float moveX, moveY, rotateX = 0, Speed = 5f;
 
     private void Start()

@@ -36,7 +36,10 @@ public class Quest : MonoBehaviour
         if (Steps.Count > StepID + 1)
             Steps[StepID + 1]._isActive = true;
         else
+        {
             UI_Manager.instance.botPrint("The experiment \"" + questName + "\" has finished! Your grade: " + questGrade + " / " + totalGrade, 5f);
+            QuestManager.instance.endQuest();
+        }
     }
     public void createNewStep()
     {

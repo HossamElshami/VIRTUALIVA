@@ -36,12 +36,19 @@ public class QuestUIManager : MonoBehaviour
             GameObject q = Instantiate(QuestCellPrefab, QuestsContainer.transform);
             q.GetComponent<Quest>().Steps = QuestMaker.instance.quests[i].Steps;
             q.GetComponent<Quest>().questIndex = i;
+            q.GetComponent<Quest>().questName = QuestMaker.instance.quests[i].questName;
             q.transform.GetComponentInChildren<TMP_Text>().text = QuestMaker.instance.quests[i].questName;
             questsButtons.Add(q.GetComponent<Quest>());
         }
     }
     public void ActiveQuest()
     {
+        for (int i = 0; i < QuestMaker.instance.quests.Count; i++)
+        {
+            QuestMaker.instance.quests[i]._isActive = false;
+            QuestManager.instance.quests[i]._isActive = selectedQuest.questName == QuestManager.instance.quests[i].questName ? true : false;
+        }
+
         QuestManager.instance.ActiveQuest = selectedQuest;
         activeQuestBtn.interactable = QuestManager.instance.ActiveQuest == selectedQuest ? false : true;
         activeQuestBtn.GetComponentInChildren<TMP_Text>().text = QuestManager.instance.ActiveQuest == selectedQuest ? "Already Selected" : "Select experience";
