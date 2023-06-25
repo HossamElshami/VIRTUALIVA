@@ -51,8 +51,8 @@ public class UI_Manager : MonoBehaviour
         inputManager = InputManager.instance;
         editItemPage = EditItemPage.instance;
 
-        for (int i = 0; i < panels.Count; i++)
-            panels[i].gameObject.SetActive(false);
+        /*for (int i = 0; i < panels.Count; i++)
+            panels[i].gameObject.SetActive(false);*/
     }
     private void Update()
     {

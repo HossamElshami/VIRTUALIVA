@@ -43,6 +43,7 @@ public class LiquidMixer : MonoBehaviour
     }
     public void MixLiquid()
     {
+        Debug.Log("HelloMan");
         if (!firstLiquidFill || !secondLiquidFill || !firstLiquid || !secondLiquid)
         {
             UI_Manager.instance.botPrint("Please put liquids first and try again.", 3f);

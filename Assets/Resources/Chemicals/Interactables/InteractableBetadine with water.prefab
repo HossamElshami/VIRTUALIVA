@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 9104131118770139879}
   - component: {fileID: 9104131118770139878}
   - component: {fileID: -7087539878851995694}
+  - component: {fileID: 418725862633649569}
+  - component: {fileID: 4633693553351611911}
+  - component: {fileID: 4878980767455312193}
   m_Layer: 11
   m_Name: InteractableBetadine with water
   m_TagString: Untagged
@@ -212,7 +215,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.3, y: 1.17, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-7087539878851995694
 MonoBehaviour:
@@ -230,7 +233,50 @@ MonoBehaviour:
   description: 
   IsCollisionObject: 0
   collisionObject: {fileID: 0}
-  toolData: {fileID: 0}
+  toolData: {fileID: 11400000, guid: 0e80c586592bab844b89df0544953346, type: 2}
+--- !u!114 &418725862633649569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104131118770139877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4454600e133814284a548799ff8787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 23561480a1dc0ea4191a336079792dcd, type: 2}
+--- !u!114 &4633693553351611911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104131118770139877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9909b736b426549b35b07cb4266a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toolName: 
+  description: 
+  IsCollisionObject: 0
+  collisionObject: {fileID: 0}
+  toolData: {fileID: 11400000, guid: 0e80c586592bab844b89df0544953346, type: 2}
+--- !u!114 &4878980767455312193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104131118770139877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638a3ac93f702634a82b27fc475fcf4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 0
 --- !u!1001 &9104131118020596907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -306,6 +352,10 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2164438414526796954, guid: 32066516bae12df42a51e1239dda0a9c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2164438414526796957, guid: 32066516bae12df42a51e1239dda0a9c, type: 3}
       propertyPath: m_Name
       value: Betadine with water
@@ -318,7 +368,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2109494700081237012, guid: 32066516bae12df42a51e1239dda0a9c, type: 3}
+    - {fileID: 2164438414526796956, guid: 32066516bae12df42a51e1239dda0a9c, type: 3}
+    - {fileID: 2164438414526796955, guid: 32066516bae12df42a51e1239dda0a9c, type: 3}
+    - {fileID: 2164438414526796954, guid: 32066516bae12df42a51e1239dda0a9c, type: 3}
+    - {fileID: 2164438414526796953, guid: 32066516bae12df42a51e1239dda0a9c, type: 3}
+    - {fileID: 2164438414526796952, guid: 32066516bae12df42a51e1239dda0a9c, type: 3}
+    - {fileID: 2164438414526796951, guid: 32066516bae12df42a51e1239dda0a9c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 32066516bae12df42a51e1239dda0a9c, type: 3}
 --- !u!4 &6940608056588156991 stripped
 Transform:

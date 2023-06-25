@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5662054696373856230}
   - component: {fileID: 8316592326760100997}
   - component: {fileID: 1050692839776170348}
+  - component: {fileID: 5754846691523231621}
+  - component: {fileID: 7572491612458320410}
   m_Layer: 11
   m_Name: InteractableBenzalkonium chloride
   m_TagString: Untagged
@@ -212,7 +214,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.3, y: 1.17, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1050692839776170348
 MonoBehaviour:
@@ -231,6 +233,32 @@ MonoBehaviour:
   IsCollisionObject: 0
   collisionObject: {fileID: 0}
   toolData: {fileID: 11400000, guid: 1453087f71e23c5479c6f9bed34c84af, type: 2}
+--- !u!114 &5754846691523231621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7492139279882602577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4454600e133814284a548799ff8787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: c69476e5ce0eaaa4e836e0e1352c9a0d, type: 2}
+--- !u!114 &7572491612458320410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7492139279882602577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638a3ac93f702634a82b27fc475fcf4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 0
 --- !u!1001 &6605369437794180994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -318,7 +346,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1124187712195911474, guid: 8bf47cf1ebe2a48479c0b68106671d1c, type: 3}
+    - {fileID: 1124187712195909838, guid: 8bf47cf1ebe2a48479c0b68106671d1c, type: 3}
+    - {fileID: 1124187712195909839, guid: 8bf47cf1ebe2a48479c0b68106671d1c, type: 3}
+    - {fileID: 1124187712195909837, guid: 8bf47cf1ebe2a48479c0b68106671d1c, type: 3}
+    - {fileID: 1124187712195909836, guid: 8bf47cf1ebe2a48479c0b68106671d1c, type: 3}
+    - {fileID: 1124187712195911473, guid: 8bf47cf1ebe2a48479c0b68106671d1c, type: 3}
+    - {fileID: 1124187712195911472, guid: 8bf47cf1ebe2a48479c0b68106671d1c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8bf47cf1ebe2a48479c0b68106671d1c, type: 3}
 --- !u!4 &6067217610145679179 stripped
 Transform:

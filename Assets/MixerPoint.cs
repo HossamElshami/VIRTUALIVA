@@ -11,7 +11,7 @@ public class MixerPoint : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Tool>().toolData.toolCategory == "Liquid" && !other.gameObject.GetComponent<DragableItem>().isDragging)
+        if (other.gameObject.GetComponent<Tool>().toolData.toolCategory == "Liquid" )
         {
             detectLiquid = true;
             chemical = other.gameObject;
@@ -19,7 +19,7 @@ public class MixerPoint : MonoBehaviour
     }
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.GetComponent<Tool>().toolData.toolCategory == "Liquid" && !other.gameObject.GetComponent<DragableItem>().isDragging)
+        if (other.gameObject.GetComponent<Tool>().toolData.toolCategory == "Liquid" )
         {
             detectLiquid = true;
             chemical = other.gameObject;
